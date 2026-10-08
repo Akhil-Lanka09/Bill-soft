@@ -19,6 +19,13 @@ const connectDB = async (): Promise<typeof mongoose> => {
   const isAtlas = uri.includes('mongodb+srv://') || uri.includes('@');
   const isProductionOrServerless = Boolean(process.env.VERCEL || process.env.NODE_ENV === 'production');
 
+  // In cloud/Vercel environments, localhost MongoDB is not accessible
+  if (isProductionOrServerless && (!process.env.MONGODB_URI || uri.includes('localhost') || uri.includes('127.0.0.1'))) {
+    throw new Error(
+      'MONGODB_URI is missing in Vercel. Please go to Vercel Project Settings → Environment Variables, add MONGODB_URI with your MongoDB Atlas connection string (mongodb+srv://...), and Redeploy.'
+    );
+  }
+
   cachedPromise = (async () => {
     try {
       console.log(`📡 Connecting to MongoDB (${isAtlas ? 'MongoDB Atlas / Cloud' : 'Local URI'})...`);
@@ -50,9 +57,14 @@ const connectDB = async (): Promise<typeof mongoose> => {
 
       // If user configured Atlas or is in cloud/Vercel, do NOT run memory server; explain error clearly
       if (isAtlas || isProductionOrServerless) {
-        console.error('❌ Failed to connect to MongoDB Atlas / Remote Database:', error.message);
-        console.error('👉 TIP: Ensure MONGODB_URI is set correctly in Vercel / .env and IP Whitelist (0.0.0.0/0) is configured in MongoDB Atlas Network Access.');
-        throw error;
+        let msg = error.message;
+        if (error.name === 'MongooseServerSelectionError') {
+          msg = 'Could not reach MongoDB Atlas cluster. Please ensure IP Access List in MongoDB Atlas Network Access is set to 0.0.0.0/0 (Allow access from anywhere).';
+        } else if (error.message.includes('bad auth') || error.message.includes('Authentication failed')) {
+          msg = 'MongoDB Atlas authentication failed. Please verify your database username and password in MONGODB_URI.';
+        }
+        console.error('❌ MongoDB Connection Error:', msg);
+        throw new Error(msg);
       }
 
       // Local development fallback to embedded memory server
