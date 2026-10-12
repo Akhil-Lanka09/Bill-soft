@@ -24,7 +24,7 @@ export const Purchases: React.FC = () => {
   const [newSup, setNewSup] = useState<any>({
     name: '',
     phone: '',
-    city: 'Kadiyam',
+    city: 'Vissannapeta',
     state: 'Andhra Pradesh',
     gstin: '',
   });
@@ -102,7 +102,7 @@ export const Purchases: React.FC = () => {
       const res = await api.createSupplier(newSup);
       if (res.success) {
         setShowSupplierModal(false);
-        setNewSup({ name: '', phone: '', city: 'Kadiyam', state: 'Andhra Pradesh', gstin: '' });
+        setNewSup({ name: '', phone: '', city: 'Vissannapeta', state: 'Andhra Pradesh', gstin: '' });
         loadData();
       }
     } catch (err: any) {

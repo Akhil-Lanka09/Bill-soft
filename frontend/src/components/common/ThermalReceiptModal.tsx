@@ -160,8 +160,8 @@ export const ThermalReceiptModal: React.FC<ThermalReceiptModalProps> = ({
             {/* Business Header */}
             <div className="text-center pb-2 border-b border-dashed border-black">
               <h1 className="text-sm font-black uppercase tracking-tight">VIJAYA NURSERY</h1>
-              <p className="text-[10px]">NH-16 Bypass Road, Kadiyam</p>
-              <p className="text-[10px]">Rajahmundry, AP - 533126</p>
+              <p className="text-[10px]">Main Road</p>
+              <p className="text-[10px]">Vissannapeta, AP - 521215</p>
               <p className="text-[10px]">Phone: +91 98480 22334</p>
               <p className="text-[10px] font-bold">GSTIN: 37ABCDE1234F1Z5</p>
             </div>

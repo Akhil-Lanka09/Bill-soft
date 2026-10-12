@@ -14,10 +14,10 @@ export class SettingsService {
       const pinHash = await bcrypt.hash('9900', config.auth.saltRounds);
       settings = await Settings.create({
         businessName: config.business.name,
-        address: 'Near NH-16 Bypass, Kadiyam Road',
-        city: 'Rajahmundry',
+        address: 'Main Road',
+        city: 'Vissannapeta',
         state: config.business.state,
-        pincode: '533126',
+        pincode: '521215',
         gstin: config.business.gstin,
         phone: config.business.phone,
         overridePinHash: pinHash,

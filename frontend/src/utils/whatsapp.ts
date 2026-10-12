@@ -26,7 +26,7 @@ export const formatWhatsAppBillMessage = (bill: Bill): string => {
 
   return (
 `🌿 *VIJAYA NURSERY* 🌿
-_Kadiyam, Rajahmundry, Andhra Pradesh_
+_Vissannapeta, Andhra Pradesh_
 📞 +91 98480 22334 | GSTIN: 37ABCDE1234F1Z5
 ━━━━━━━━━━━━━━━━━━━━
 🧾 *${bill.billType === 'tax_invoice' ? 'TAX INVOICE' : 'BILL OF SUPPLY'}*
@@ -47,7 +47,7 @@ ${paymentsList}
 ${bill.balanceDue > 0 ? `⚠️ *Balance Due:* ₹${bill.balanceDue.toFixed(2)}` : '✅ *Status:* Fully Paid'}
 
 🌱 _Thank you for choosing Vijaya Nursery! Let us grow together._ 🌿
-📍 _NH-16 Bypass Road, Kadiyam, Rajahmundry_`
+📍 _Main Road, Vissannapeta, Andhra Pradesh_`
   );
 };
 

@@ -1,6 +1,6 @@
 # 🌿 VIJAYA NURSERY — Complete Enterprise POS, Billing & Inventory System
 
-A production-grade, full-stack Point of Sale (POS), Inventory Control, Customer Credit Ledger, Purchase Management, and GST Billing software built specifically for **Vijaya Nursery** (NH-16 Bypass Road, Kadiyam, Rajahmundry, Andhra Pradesh).
+A production-grade, full-stack Point of Sale (POS), Inventory Control, Customer Credit Ledger, Purchase Management, and GST Billing software built specifically for **Vijaya Nursery** (Vissannapeta, Andhra Pradesh).
 
 > 🚀 **Ready for Cloud Deployment**: Follow the [Complete Vercel & MongoDB Atlas Deployment Guide](./DEPLOYMENT_GUIDE.md) to launch the app online in under 5 minutes.
 
@@ -110,4 +110,4 @@ Frontend bundle outputs to `frontend/dist/` and backend compiles to `backend/dis
 
 ---
 
-© 2026 Vijaya Nursery • Rajahmundry, Andhra Pradesh. All rights reserved.
+© 2026 Vijaya Nursery • Vissannapeta, Andhra Pradesh. All rights reserved.

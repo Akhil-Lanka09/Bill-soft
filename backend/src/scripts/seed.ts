@@ -33,10 +33,10 @@ export const seedDatabase = async () => {
       const pinHash = await bcrypt.hash('9900', config.auth.saltRounds);
       await Settings.create({
         businessName: 'Vijaya Nursery',
-        address: 'D.No. 4-12, Near NH-16 Bypass, Kadiyam Road',
-        city: 'Rajahmundry',
+        address: 'Main Road',
+        city: 'Vissannapeta',
         state: 'Andhra Pradesh',
-        pincode: '533126',
+        pincode: '521215',
         gstin: '37ABCDE1234F1Z5',
         phone: '+91 98480 22334',
         email: 'contact@vijayanursery.com',
@@ -532,7 +532,7 @@ export const seedDatabase = async () => {
           phone: '9849200300',
           email: 'ramakrishna.k@yahoo.co.in',
           address: 'Near Rama Temple, Danavaipeta',
-          city: 'Rajahmundry',
+          city: 'Vissannapeta',
           state: 'Andhra Pradesh',
           creditLimit: 15000,
           creditDays: 15,

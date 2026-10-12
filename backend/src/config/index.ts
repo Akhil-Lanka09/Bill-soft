@@ -34,17 +34,17 @@ const config = {
     financialYear: process.env.FINANCIAL_YEAR || '2026-27',
     currency: process.env.CURRENCY || 'INR',
     address: {
-      line1: 'Near NH-16 Bypass, Kadiyam Road',
-      city: 'Rajahmundry',
+      line1: 'Main Road',
+      city: 'Vissannapeta',
       state: 'Andhra Pradesh',
-      pincode: '533126',
+      pincode: '521215',
     },
     phone: '+91 98480 22334',
     gstin: '37ABCDE1234F1Z5',
   },
 
   invoice: {
-    prefix: 'BN',
+    prefix: 'VN',
     padding: 5,
   },
 

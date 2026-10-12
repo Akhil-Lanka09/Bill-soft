@@ -157,7 +157,7 @@ export const Login: React.FC = () => {
         </div>
 
         <p className="text-center text-[11px] text-slate-500 mt-6">
-          Vijaya Nursery • Rajahmundry, Andhra Pradesh • v1.0.0 Enterprise
+          Vijaya Nursery • Vissannapeta, Andhra Pradesh • v1.0.0 Enterprise
         </p>
       </div>
     </div>

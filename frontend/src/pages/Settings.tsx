@@ -456,7 +456,7 @@ export const Settings: React.FC = () => {
                     required
                     value={newUser.username}
                     onChange={(e) => setNewUser({ ...newUser, username: e.target.value.toLowerCase().trim() })}
-                    placeholder="e.g. cashier3, manager_kadiyam"
+                    placeholder="e.g. cashier3, store_manager"
                     className="w-full py-2 pl-7 pr-3 border border-slate-300 rounded-xl text-xs font-mono lowercase"
                   />
                 </div>

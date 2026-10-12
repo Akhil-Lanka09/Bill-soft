@@ -812,7 +812,7 @@ export class BillingService {
     const rawSettings = await Settings.findOne();
     const settings: any = rawSettings || {
       businessName: config.business.name,
-      address: 'Near NH-16 Bypass, Kadiyam Road, Rajahmundry',
+      address: 'Main Road, Vissannapeta, Andhra Pradesh',
       phone: '+91 98480 22334',
       gstin: '37ABCDE1234F1Z5',
       receiptFooterMessage: 'Thank you for choosing Vijaya Nursery! Visit again.',
@@ -821,8 +821,8 @@ export class BillingService {
     return {
       business: {
         name: settings.businessName || 'VIJAYA NURSERY',
-        address: settings.address || 'Near Ring Road, Vijayawada',
-        phone: settings.phone || '+91 98765 43210',
+        address: settings.address || 'Main Road, Vissannapeta, Andhra Pradesh',
+        phone: settings.phone || '+91 98480 22334',
         gstin: settings.gstin || '37ABCDE1234F1Z5',
       },
       invoice: {
