@@ -1,6 +1,6 @@
 {
   "name": "vijaya-nursery",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Vijaya Nursery - Complete POS, Billing, Inventory & Administration System",
   "private": true,
   "workspaces": [

@@ -1,6 +1,6 @@
 {
   "name": "vijaya-nursery-backend",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Vijaya Nursery POS Backend API",
   "main": "dist/server.js",
   "scripts": {
