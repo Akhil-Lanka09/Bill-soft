@@ -74,10 +74,10 @@ const connectDB = async (): Promise<typeof mongoose> => {
         mongodInstance = await MongoMemoryServer.create({
           instance: {
             port: 27017,
-            dbName: 'bn-reddy-nursery',
+            dbName: 'vijaya-nursery',
           },
         }).catch(async () => {
-          return await MongoMemoryServer.create({ instance: { dbName: 'bn-reddy-nursery' } });
+          return await MongoMemoryServer.create({ instance: { dbName: 'vijaya-nursery' } });
         });
 
         const memoryUri = mongodInstance.getUri();

@@ -1,6 +1,6 @@
-# 🌿 BN Reddy Nursery — Vercel & MongoDB Atlas Deployment Guide
+# 🌿 Vijaya Nursery — Vercel & MongoDB Atlas Deployment Guide
 
-This guide walks you through deploying the complete **BN Reddy Nursery POS & Billing System** to **Vercel** with a free cloud **MongoDB Atlas** database.
+This guide walks you through deploying the complete **Vijaya Nursery POS & Billing System** to **Vercel** with a free cloud **MongoDB Atlas** database.
 
 ---
 
@@ -27,9 +27,9 @@ This guide walks you through deploying the complete **BN Reddy Nursery POS & Bil
    - Choose **"Drivers"** (Node.js).
    - Copy your connection string. It will look like this:
      ```text
-     mongodb+srv://nursery_admin:<password>@cluster0.abcde.mongodb.net/bn-reddy-nursery?retryWrites=true&w=majority
+     mongodb+srv://nursery_admin:<password>@cluster0.abcde.mongodb.net/vijaya-nursery?retryWrites=true&w=majority
      ```
-   - Replace `<password>` with your actual password and ensure the database name at the end is `/bn-reddy-nursery`.
+   - Replace `<password>` with your actual password and ensure the database name at the end is `/vijaya-nursery`.
 
 ---
 
@@ -41,7 +41,7 @@ This guide walks you through deploying the complete **BN Reddy Nursery POS & Bil
    ```bash
    git init
    git add .
-   git commit -m "BN Reddy Nursery POS - Ready for Vercel"
+   git commit -m "Vijaya Nursery POS - Ready for Vercel"
    git branch -M main
    git remote add origin https://github.com/<your-username>/<your-repo-name>.git
    git push -u origin main
@@ -63,15 +63,15 @@ This guide walks you through deploying the complete **BN Reddy Nursery POS & Bil
 
    | Variable Name | Example / Recommended Value | Description |
    |---------------|-----------------------------|-------------|
-   | `MONGODB_URI` | `mongodb+srv://.../bn-reddy-nursery?retryWrites=true&w=majority` | Your MongoDB Atlas connection string from Step 1 |
-   | `JWT_SECRET` | `bn-reddy-super-secret-key-2026-production` | Any 32+ character random string for signing JWT tokens |
+   | `MONGODB_URI` | `mongodb+srv://.../vijaya-nursery?retryWrites=true&w=majority` | Your MongoDB Atlas connection string from Step 1 |
+   | `JWT_SECRET` | `vijaya-super-secret-key-2026-production` | Any 32+ character random string for signing JWT tokens |
    | `NODE_ENV` | `production` | Production environment flag |
-   | `BUSINESS_NAME` | `BN Reddy Nursery` | Nursery Business Name |
-   | `INVOICE_PREFIX` | `BN` | Tax Invoice serial prefix |
+   | `BUSINESS_NAME` | `Vijaya Nursery` | Nursery Business Name |
+   | `INVOICE_PREFIX` | `VN` | Tax Invoice serial prefix |
 
 5. **Click "Deploy"**:
    - Vercel will build both the TypeScript backend and the Vite frontend.
-   - Once completed, you will receive a production URL (e.g. `https://bn-reddy-nursery.vercel.app`).
+   - Once completed, you will receive a production URL (e.g. `https://vijaya-nursery.vercel.app`).
 
 ---
 
@@ -86,7 +86,7 @@ vercel
 When prompted:
 - Set up and deploy? **Yes**
 - Link to existing project? **No**
-- What's your project's name? **bn-reddy-nursery**
+- What's your project's name? **vijaya-nursery**
 - In which directory is your code located? **`./`**
 - Want to modify settings? **No**
 

@@ -11,7 +11,7 @@ import userRoutes from './userRoutes';
 const router = Router();
 
 router.get('/health', (req, res) => {
-  res.json({ status: 'ok', service: 'BN Reddy Nursery POS Backend', timestamp: new Date() });
+  res.json({ status: 'ok', service: 'Vijaya Nursery POS Backend', timestamp: new Date() });
 });
 
 router.use('/auth', authRoutes);

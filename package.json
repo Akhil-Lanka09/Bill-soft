@@ -1,7 +1,7 @@
 {
-  "name": "bn-reddy-nursery",
+  "name": "vijaya-nursery",
   "version": "1.0.0",
-  "description": "BN Reddy Nursery - Complete POS, Billing, Inventory & Administration System",
+  "description": "Vijaya Nursery - Complete POS, Billing, Inventory & Administration System",
   "private": true,
   "workspaces": [
     "backend",

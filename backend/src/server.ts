@@ -12,7 +12,7 @@ const startServer = async () => {
 
     const server = app.listen(config.port, () => {
       console.log(`====================================================`);
-      console.log(`🌱 BN REDDY NURSERY - POS & BILLING SYSTEM`);
+      console.log(`🌱 VIJAYA NURSERY - POS & BILLING SYSTEM`);
       console.log(`🚀 Server running in ${config.env} mode on port ${config.port}`);
       console.log(`📡 API URL: http://localhost:${config.port}/api`);
       console.log(`====================================================`);

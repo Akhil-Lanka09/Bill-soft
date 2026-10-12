@@ -23,7 +23,7 @@ const ProtectedLayout: React.FC = () => {
       <div className="min-h-screen bg-slate-900 flex items-center justify-center text-white">
         <div className="flex flex-col items-center space-y-3">
           <div className="w-10 h-10 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin" />
-          <p className="text-xs text-slate-400 font-mono">Initializing BN Reddy Nursery POS...</p>
+          <p className="text-xs text-slate-400 font-mono">Initializing Vijaya Nursery POS...</p>
         </div>
       </div>
     );

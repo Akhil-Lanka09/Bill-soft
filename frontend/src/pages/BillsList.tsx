@@ -192,7 +192,7 @@ export const BillsList: React.FC = () => {
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    const filename = `BN_Reddy_Nursery_Invoices_${startDate || 'All'}_to_${endDate || 'Current'}.csv`;
+    const filename = `Vijaya_Nursery_Invoices_${startDate || 'All'}_to_${endDate || 'Current'}.csv`;
     link.setAttribute('download', filename);
     document.body.appendChild(link);
     link.click();

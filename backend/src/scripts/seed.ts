@@ -19,7 +19,7 @@ export const seedDatabase = async () => {
       await connectDB();
     }
 
-    console.log('🌱 Starting BN Reddy Nursery Database Seeding...');
+    console.log('🌱 Starting Vijaya Nursery Database Seeding...');
 
     // Clear existing collections if needed
     if (process.argv.includes('--reset')) {
@@ -32,20 +32,20 @@ export const seedDatabase = async () => {
     if (!existingSettings) {
       const pinHash = await bcrypt.hash('9900', config.auth.saltRounds);
       await Settings.create({
-        businessName: 'BN Reddy Nursery',
+        businessName: 'Vijaya Nursery',
         address: 'D.No. 4-12, Near NH-16 Bypass, Kadiyam Road',
         city: 'Rajahmundry',
         state: 'Andhra Pradesh',
         pincode: '533126',
         gstin: '37ABCDE1234F1Z5',
         phone: '+91 98480 22334',
-        email: 'contact@bnreddynursery.com',
+        email: 'contact@vijayanursery.com',
         bankName: 'State Bank of India',
         bankAccount: '38192847192',
         bankIfsc: 'SBIN0001234',
         bankBranch: 'Main Branch',
-        upiId: 'bnreddynursery@sbi',
-        invoicePrefix: 'BN',
+        upiId: 'vijayanursery@sbi',
+        invoicePrefix: 'VN',
         currentFinancialYear: '2026-27',
         timezone: 'Asia/Kolkata',
         currency: 'INR',
@@ -55,7 +55,7 @@ export const seedDatabase = async () => {
         allowNegativeStockSale: false,
         overridePinHash: pinHash,
         invoiceTerms: '1. Live plants are non-returnable once taken outside nursery. 2. Please follow watering instructions provided.',
-        receiptFooter: 'Thank you for choosing BN Reddy Nursery! Let us grow together 🌿',
+        receiptFooter: 'Thank you for choosing Vijaya Nursery! Let us grow together 🌿',
       });
       console.log('✅ Settings initialized (Override PIN: 9900)');
     }
@@ -70,10 +70,10 @@ export const seedDatabase = async () => {
       adminUser = await User.create({
         username: 'admin',
         password: 'Admin@123',
-        name: 'B. N. Reddy',
+        name: 'Vijaya (Admin)',
         role: 'admin',
         phone: '9848022334',
-        email: 'admin@bnreddynursery.com',
+        email: 'admin@vijayanursery.com',
         isActive: true,
       });
 
@@ -83,7 +83,7 @@ export const seedDatabase = async () => {
         name: 'Suresh Varma (Manager)',
         role: 'manager',
         phone: '9848123456',
-        email: 'manager@bnreddynursery.com',
+        email: 'manager@vijayanursery.com',
         isActive: true,
       });
 
@@ -93,7 +93,7 @@ export const seedDatabase = async () => {
         name: 'Raju (Cashier 1)',
         role: 'agent',
         phone: '9848987654',
-        email: 'cashier@bnreddynursery.com',
+        email: 'cashier@vijayanursery.com',
         isActive: true,
       });
 
@@ -103,7 +103,7 @@ export const seedDatabase = async () => {
         name: 'Praveen (Cashier 2)',
         role: 'agent',
         phone: '9848554433',
-        email: 'praveen@bnreddynursery.com',
+        email: 'praveen@vijayanursery.com',
         isActive: true,
       });
 
@@ -629,7 +629,7 @@ export const seedDatabase = async () => {
       console.log('✅ GST tax rules configured.');
     }
 
-    console.log('🎉 BN REDDY NURSERY DATABASE SEEDING COMPLETED SUCCESSFULLY!');
+    console.log('🎉 VIJAYA NURSERY DATABASE SEEDING COMPLETED SUCCESSFULLY!');
     if (require.main === module) {
       process.exit(0);
     }

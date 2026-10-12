@@ -49,7 +49,7 @@ export const Login: React.FC = () => {
           <div className="inline-flex w-16 h-16 rounded-2xl bg-gradient-to-tr from-emerald-600 to-green-400 items-center justify-center text-white shadow-xl shadow-emerald-500/20 mb-4 border border-emerald-400/30">
             <Sprout className="w-10 h-10" />
           </div>
-          <h1 className="text-2xl font-black text-white tracking-tight">BN REDDY NURSERY</h1>
+          <h1 className="text-2xl font-black text-white tracking-tight">VIJAYA NURSERY</h1>
           <p className="text-xs text-emerald-400 font-semibold tracking-wide uppercase mt-1">
             Point of Sale & Nursery Enterprise System
           </p>
@@ -126,7 +126,7 @@ export const Login: React.FC = () => {
                   <ShieldCheck className="w-3.5 h-3.5" />
                   <span>Admin</span>
                 </div>
-                <div className="text-[10px] text-slate-400 truncate">B.N. Reddy</div>
+                <div className="text-[10px] text-slate-400 truncate">Vijaya</div>
               </button>
 
               <button
@@ -157,7 +157,7 @@ export const Login: React.FC = () => {
         </div>
 
         <p className="text-center text-[11px] text-slate-500 mt-6">
-          BN Reddy Nursery • Rajahmundry, Andhra Pradesh • v1.0.0 Enterprise
+          Vijaya Nursery • Rajahmundry, Andhra Pradesh • v1.0.0 Enterprise
         </p>
       </div>
     </div>

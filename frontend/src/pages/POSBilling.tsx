@@ -130,7 +130,7 @@ export const POSBilling: React.FC = () => {
   // Generate UPI QR code dynamically when UPI is selected
   useEffect(() => {
     if (activePaymentMethod === 'upi' && summary?.grandTotal) {
-      const upiUrl = `upi://pay?pa=bnreddynursery@sbi&pn=BN%20Reddy%20Nursery&am=${summary.grandTotal}&cu=INR&tn=Invoice%20Payment`;
+      const upiUrl = `upi://pay?pa=vijayanursery@sbi&pn=Vijaya%20Nursery&am=${summary.grandTotal}&cu=INR&tn=Invoice%20Payment`;
       QRCode.toDataURL(upiUrl, { width: 180, margin: 1 })
         .then((url) => setUpiQrDataUrl(url))
         .catch(console.error);
@@ -740,7 +740,7 @@ export const POSBilling: React.FC = () => {
                       className="mx-auto w-40 h-40 bg-white p-2 rounded-xl shadow-xs border border-slate-200"
                     />
                   )}
-                  <p className="text-[11px] font-mono text-slate-500">VPA: bnreddynursery@sbi</p>
+                  <p className="text-[11px] font-mono text-slate-500">VPA: vijayanursery@sbi</p>
                 </div>
               )}
 

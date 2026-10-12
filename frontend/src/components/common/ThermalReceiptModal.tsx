@@ -159,7 +159,7 @@ export const ThermalReceiptModal: React.FC<ThermalReceiptModalProps> = ({
           >
             {/* Business Header */}
             <div className="text-center pb-2 border-b border-dashed border-black">
-              <h1 className="text-sm font-black uppercase tracking-tight">BN REDDY NURSERY</h1>
+              <h1 className="text-sm font-black uppercase tracking-tight">VIJAYA NURSERY</h1>
               <p className="text-[10px]">NH-16 Bypass Road, Kadiyam</p>
               <p className="text-[10px]">Rajahmundry, AP - 533126</p>
               <p className="text-[10px]">Phone: +91 98480 22334</p>
@@ -302,7 +302,7 @@ export const ThermalReceiptModal: React.FC<ThermalReceiptModalProps> = ({
 
             {/* Footer & Terms */}
             <div className="pt-2 text-center text-[9px] space-y-1">
-              <p className="font-semibold">Thank you for visiting BN Reddy Nursery!</p>
+              <p className="font-semibold">Thank you for visiting Vijaya Nursery!</p>
               <p className="text-[8px] text-slate-500">Live plants once purchased cannot be returned.</p>
               <p className="font-mono text-[8px] tracking-widest text-slate-400 pt-1">
                 *** DIGITAL INVOICE COPY ***

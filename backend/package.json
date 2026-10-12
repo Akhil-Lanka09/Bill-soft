@@ -1,7 +1,7 @@
 {
-  "name": "bn-reddy-nursery-backend",
+  "name": "vijaya-nursery-backend",
   "version": "1.0.0",
-  "description": "BN Reddy Nursery POS Backend API",
+  "description": "Vijaya Nursery POS Backend API",
   "main": "dist/server.js",
   "scripts": {
     "dev": "tsx watch src/server.ts",

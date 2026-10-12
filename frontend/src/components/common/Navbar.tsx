@@ -38,7 +38,7 @@ export const Navbar: React.FC = () => {
         <div>
           <div className="flex items-center space-x-2">
             <h1 className="text-lg font-bold tracking-tight text-slate-800 leading-tight">
-              BN REDDY NURSERY
+              VIJAYA NURSERY
             </h1>
             <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200">
               POS Terminal

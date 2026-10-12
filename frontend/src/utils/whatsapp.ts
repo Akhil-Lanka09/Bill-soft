@@ -25,7 +25,7 @@ export const formatWhatsAppBillMessage = (bill: Bill): string => {
     .join('\n');
 
   return (
-`🌿 *BN REDDY NURSERY* 🌿
+`🌿 *VIJAYA NURSERY* 🌿
 _Kadiyam, Rajahmundry, Andhra Pradesh_
 📞 +91 98480 22334 | GSTIN: 37ABCDE1234F1Z5
 ━━━━━━━━━━━━━━━━━━━━
@@ -46,7 +46,7 @@ ${bill.roundOff !== 0 ? `*Round Off:* ₹${bill.roundOff.toFixed(2)}\n` : ''}*�
 ${paymentsList}
 ${bill.balanceDue > 0 ? `⚠️ *Balance Due:* ₹${bill.balanceDue.toFixed(2)}` : '✅ *Status:* Fully Paid'}
 
-🌱 _Thank you for choosing BN Reddy Nursery! Let us grow together._ 🌿
+🌱 _Thank you for choosing Vijaya Nursery! Let us grow together._ 🌿
 📍 _NH-16 Bypass Road, Kadiyam, Rajahmundry_`
   );
 };

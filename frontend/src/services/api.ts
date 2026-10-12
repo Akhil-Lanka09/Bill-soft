@@ -40,6 +40,15 @@ async function request<T = any>(endpoint: string, options: RequestInit = {}): Pr
   return data;
 }
 
+const buildQueryString = (params?: Record<string, any>): string => {
+  if (!params) return '';
+  const entries = Object.entries(params).filter(
+    ([_, val]) => val !== undefined && val !== null && val !== ''
+  );
+  if (!entries.length) return '';
+  return '?' + new URLSearchParams(entries).toString();
+};
+
 export const api = {
   // Auth
   login: (credentials: { username: string; password: string }) =>
@@ -50,8 +59,7 @@ export const api = {
 
   // Products & Inventory
   getProducts: (params?: Record<string, any>) => {
-    const qs = params ? '?' + new URLSearchParams(params).toString() : '';
-    return request(`/products${qs}`);
+    return request(`/products${buildQueryString(params)}`);
   },
   searchProducts: (q: string, limit: number = 20) =>
     request(`/products/search?q=${encodeURIComponent(q)}&limit=${limit}`),
@@ -74,8 +82,7 @@ export const api = {
   createBill: (payload: any) =>
     request('/bills', { method: 'POST', body: JSON.stringify(payload) }),
   getBills: (params?: Record<string, any>) => {
-    const qs = params ? '?' + new URLSearchParams(params).toString() : '';
-    return request(`/bills${qs}`);
+    return request(`/bills${buildQueryString(params)}`);
   },
   getBillById: (id: string) => request(`/bills/${id}`),
   getThermalReceipt: (id: string) => request(`/bills/${id}/receipt`),
@@ -91,8 +98,7 @@ export const api = {
 
   // Customers & Ledgers
   getCustomers: (params?: Record<string, any>) => {
-    const qs = params ? '?' + new URLSearchParams(params).toString() : '';
-    return request(`/customers${qs}`);
+    return request(`/customers${buildQueryString(params)}`);
   },
   getCustomerById: (id: string) => request(`/customers/${id}`),
   createCustomer: (data: any) =>

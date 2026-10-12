@@ -467,10 +467,12 @@ export class BillingService {
       ];
     }
 
-    if (startDate || endDate) {
+    const validStartDate = startDate && startDate !== 'undefined' ? startDate : undefined;
+    const validEndDate = endDate && endDate !== 'undefined' ? endDate : undefined;
+    if (validStartDate || validEndDate) {
       query.billDate = {};
-      if (startDate) query.billDate.$gte = new Date(startDate.includes('T') ? startDate : `${startDate}T00:00:00.000Z`);
-      if (endDate) query.billDate.$lte = new Date(endDate.includes('T') ? endDate : `${endDate}T23:59:59.999Z`);
+      if (validStartDate) query.billDate.$gte = new Date(validStartDate.includes('T') ? validStartDate : `${validStartDate}T00:00:00.000Z`);
+      if (validEndDate) query.billDate.$lte = new Date(validEndDate.includes('T') ? validEndDate : `${validEndDate}T23:59:59.999Z`);
     }
 
     if (agentId) query.agent = new Types.ObjectId(agentId);
@@ -813,12 +815,12 @@ export class BillingService {
       address: 'Near NH-16 Bypass, Kadiyam Road, Rajahmundry',
       phone: '+91 98480 22334',
       gstin: '37ABCDE1234F1Z5',
-      receiptFooterMessage: 'Thank you for choosing BN Reddy Nursery! Visit again.',
+      receiptFooterMessage: 'Thank you for choosing Vijaya Nursery! Visit again.',
     };
 
     return {
       business: {
-        name: settings.businessName || 'BN REDDY NURSERY',
+        name: settings.businessName || 'VIJAYA NURSERY',
         address: settings.address || 'Near Ring Road, Vijayawada',
         phone: settings.phone || '+91 98765 43210',
         gstin: settings.gstin || '37ABCDE1234F1Z5',

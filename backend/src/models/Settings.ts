@@ -47,7 +47,7 @@ const settingsSchema = new Schema<ISettings>(
     businessName: {
       type: String,
       required: true,
-      default: 'BN Reddy Nursery',
+      default: 'Vijaya Nursery',
     },
     businessLogo: String,
     address: String,
@@ -69,7 +69,7 @@ const settingsSchema = new Schema<ISettings>(
     invoicePrefix: {
       type: String,
       required: true,
-      default: 'BN',
+      default: 'VN',
     },
     currentFinancialYear: {
       type: String,
@@ -139,7 +139,7 @@ const settingsSchema = new Schema<ISettings>(
     },
     receiptFooter: {
       type: String,
-      default: 'Thank you for shopping at BN Reddy Nursery!',
+      default: 'Thank you for shopping at Vijaya Nursery!',
     },
     enabledPaymentMethods: {
       type: [String],

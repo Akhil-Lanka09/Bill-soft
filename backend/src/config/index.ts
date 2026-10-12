@@ -8,7 +8,7 @@ const config = {
   port: parseInt(process.env.PORT || '5000', 10),
 
   mongodb: {
-    uri: process.env.MONGODB_URI || 'mongodb://localhost:27017/bn-reddy-nursery',
+    uri: process.env.MONGODB_URI || 'mongodb://localhost:27017/vijaya-nursery',
   },
 
   jwt: {
@@ -26,11 +26,11 @@ const config = {
   },
 
   business: {
-    name: process.env.BUSINESS_NAME || 'BN Reddy Nursery',
+    name: process.env.BUSINESS_NAME || 'Vijaya Nursery',
     timezone: process.env.BUSINESS_TIMEZONE || 'Asia/Kolkata',
     state: process.env.BUSINESS_STATE || 'Andhra Pradesh',
     gstStateCode: process.env.GST_STATE_CODE || '37',
-    invoicePrefix: process.env.INVOICE_PREFIX || 'BN',
+    invoicePrefix: process.env.INVOICE_PREFIX || 'VN',
     financialYear: process.env.FINANCIAL_YEAR || '2026-27',
     currency: process.env.CURRENCY || 'INR',
     address: {

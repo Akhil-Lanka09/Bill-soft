@@ -1,6 +1,6 @@
-# 🌿 BN REDDY NURSERY — Complete Enterprise POS, Billing & Inventory System
+# 🌿 VIJAYA NURSERY — Complete Enterprise POS, Billing & Inventory System
 
-A production-grade, full-stack Point of Sale (POS), Inventory Control, Customer Credit Ledger, Purchase Management, and GST Billing software built specifically for **BN Reddy Nursery** (NH-16 Bypass Road, Kadiyam, Rajahmundry, Andhra Pradesh).
+A production-grade, full-stack Point of Sale (POS), Inventory Control, Customer Credit Ledger, Purchase Management, and GST Billing software built specifically for **Vijaya Nursery** (NH-16 Bypass Road, Kadiyam, Rajahmundry, Andhra Pradesh).
 
 > 🚀 **Ready for Cloud Deployment**: Follow the [Complete Vercel & MongoDB Atlas Deployment Guide](./DEPLOYMENT_GUIDE.md) to launch the app online in under 5 minutes.
 
@@ -8,7 +8,7 @@ A production-grade, full-stack Point of Sale (POS), Inventory Control, Customer 
 
 ## 🚀 Key Highlights & Capabilities
 
-- **Zero-Setup Database Resiliency**: Connects to your local or cloud MongoDB (`mongodb://localhost:27017/bn-reddy-nursery`) automatically, and features an **automatic embedded in-memory MongoDB fallback** so it runs immediately out-of-the-box on any computer without manual database installs!
+- **Zero-Setup Database Resiliency**: Connects to your local or cloud MongoDB (`mongodb://localhost:27017/vijaya-nursery`) automatically, and features an **automatic embedded in-memory MongoDB fallback** so it runs immediately out-of-the-box on any computer without manual database installs!
 - **Fast Nursery POS Terminal**:
   - Live bilingual plant search (English common name, Telugu local name e.g., *బంగినపల్లి మామిడి*, Botanical name, and SKU).
   - Category pill tabs (Fruit Plants, Flowering, Indoor & Air Purifying, Pots & Planters, Soils & Organic Fertilizers, Tools).
@@ -110,4 +110,4 @@ Frontend bundle outputs to `frontend/dist/` and backend compiles to `backend/dis
 
 ---
 
-© 2026 BN Reddy Nursery • Rajahmundry, Andhra Pradesh. All rights reserved.
+© 2026 Vijaya Nursery • Rajahmundry, Andhra Pradesh. All rights reserved.
