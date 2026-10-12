@@ -143,7 +143,7 @@ export const Settings: React.FC = () => {
   }
 
   return (
-    <div className="p-6 space-y-6 overflow-y-auto max-h-[calc(100vh-4rem)]">
+    <div className="p-3 sm:p-6 space-y-4 sm:space-y-6 overflow-y-auto max-h-[calc(100vh-4rem)]">
       {/* Header */}
       <div>
         <h2 className="text-xl font-black text-slate-800 tracking-tight flex items-center space-x-2">
@@ -162,16 +162,16 @@ export const Settings: React.FC = () => {
         </div>
       )}
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
         {/* LEFT 2 COLS: Business Profile Form */}
-        <div className="lg:col-span-2 bg-white rounded-3xl border border-slate-200 shadow-xs p-6">
+        <div className="lg:col-span-2 bg-white rounded-2xl sm:rounded-3xl border border-slate-200 shadow-xs p-4 sm:p-6">
           <div className="flex items-center space-x-2 mb-4 pb-3 border-b border-slate-100">
             <Building className="w-5 h-5 text-emerald-600" />
             <h3 className="font-bold text-sm text-slate-800">Nursery Profile & Tax Information</h3>
           </div>
 
           <form onSubmit={handleSaveSettings} className="space-y-4 text-xs">
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
                 <label className="block font-semibold text-slate-700 mb-1">Nursery Business Name</label>
                 <input
@@ -203,7 +203,7 @@ export const Settings: React.FC = () => {
               />
             </div>
 
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <div>
                 <label className="block font-semibold text-slate-700 mb-1">City</label>
                 <input
@@ -235,7 +235,7 @@ export const Settings: React.FC = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
                 <label className="block font-semibold text-slate-700 mb-1">Contact Phone</label>
                 <input
@@ -257,12 +257,12 @@ export const Settings: React.FC = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <div>
                 <label className="block font-semibold text-slate-700 mb-1">Invoice Number Prefix</label>
                 <input
                   type="text"
-                  value={settings?.invoicePrefix || 'BN'}
+                  value={settings?.invoicePrefix || 'VN'}
                   onChange={(e) => setSettings({ ...settings, invoicePrefix: e.target.value.toUpperCase() })}
                   className="w-full py-2 px-3 border border-slate-300 rounded-xl font-mono uppercase"
                 />
@@ -420,8 +420,8 @@ export const Settings: React.FC = () => {
       {/* CREATE STAFF MODAL */}
       {showAddUserModal && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl max-w-md w-full shadow-2xl border border-slate-200 overflow-hidden">
-            <div className="bg-slate-900 text-white p-5 flex items-center justify-between">
+          <div className="bg-white rounded-3xl max-w-md w-full shadow-2xl border border-slate-200 overflow-hidden max-h-[90vh] flex flex-col">
+            <div className="bg-slate-900 text-white p-4 sm:p-5 flex items-center justify-between">
               <div>
                 <h3 className="font-bold text-sm">Create Staff Login Account</h3>
                 <p className="text-[11px] text-slate-400">Generate credentials for cashier or nursery manager</p>
@@ -434,7 +434,7 @@ export const Settings: React.FC = () => {
               </button>
             </div>
 
-            <form onSubmit={handleCreateUser} className="p-5 space-y-3.5 text-xs">
+            <form onSubmit={handleCreateUser} className="p-4 sm:p-5 space-y-3.5 text-xs overflow-y-auto">
               <div>
                 <label className="block font-semibold text-slate-700 mb-1">Full Employee Name</label>
                 <input

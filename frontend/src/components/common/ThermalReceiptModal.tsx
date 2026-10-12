@@ -67,15 +67,23 @@ export const ThermalReceiptModal: React.FC<ThermalReceiptModalProps> = ({
     <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl max-w-lg w-full shadow-2xl border border-slate-200 overflow-hidden flex flex-col max-h-[92vh]">
         {/* Modal Header */}
-        <div className="bg-slate-900 text-white p-4 flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <CheckCircle2 className="w-5 h-5 text-emerald-400" />
-            <h3 className="font-bold text-sm">Invoice Completed: {bill.invoiceNumber}</h3>
+        <div className="bg-slate-900 text-white p-3 sm:p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+          <div className="flex items-center justify-between sm:justify-start space-x-2">
+            <div className="flex items-center space-x-2 min-w-0">
+              <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
+              <h3 className="font-bold text-xs sm:text-sm truncate">Invoice Completed: {bill.invoiceNumber}</h3>
+            </div>
+            <button
+              onClick={onClose}
+              className="sm:hidden text-slate-400 hover:text-white p-1 rounded-lg transition-colors cursor-pointer"
+            >
+              <X className="w-5 h-5" />
+            </button>
           </div>
           <div className="flex items-center space-x-2">
             <button
               onClick={handlePrint}
-              className="bg-slate-700 hover:bg-slate-600 text-white text-xs font-semibold px-3 py-1.5 rounded-lg flex items-center space-x-1.5 transition-colors cursor-pointer shadow-sm"
+              className="flex-1 sm:flex-initial bg-slate-700 hover:bg-slate-600 text-white text-xs font-semibold px-2.5 sm:px-3 py-1.5 rounded-lg flex items-center justify-center space-x-1.5 transition-colors cursor-pointer shadow-sm"
               title="Print 80mm receipt"
             >
               <Printer className="w-3.5 h-3.5" />
@@ -83,7 +91,7 @@ export const ThermalReceiptModal: React.FC<ThermalReceiptModalProps> = ({
             </button>
             <button
               onClick={handleSendWhatsApp}
-              className="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold px-3 py-1.5 rounded-lg flex items-center space-x-1.5 transition-colors cursor-pointer shadow-sm"
+              className="flex-1 sm:flex-initial bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold px-2.5 sm:px-3 py-1.5 rounded-lg flex items-center justify-center space-x-1.5 transition-colors cursor-pointer shadow-sm"
               title="Send bill via WhatsApp"
             >
               <WhatsAppIcon className="w-3.5 h-3.5" />
@@ -91,7 +99,7 @@ export const ThermalReceiptModal: React.FC<ThermalReceiptModalProps> = ({
             </button>
             <button
               onClick={onClose}
-              className="text-slate-400 hover:text-white p-1 rounded-lg transition-colors cursor-pointer"
+              className="hidden sm:inline-flex text-slate-400 hover:text-white p-1 rounded-lg transition-colors cursor-pointer"
             >
               <X className="w-5 h-5" />
             </button>

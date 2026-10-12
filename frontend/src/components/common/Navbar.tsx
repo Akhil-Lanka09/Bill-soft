@@ -29,22 +29,24 @@ export const Navbar: React.FC = () => {
   }, []);
 
   return (
-    <header className="h-16 bg-white border-b border-slate-200 px-6 flex items-center justify-between shadow-xs select-none">
+    <header className="h-14 md:h-16 bg-white border-b border-slate-200 px-3 md:px-6 flex items-center justify-between shadow-xs select-none sticky top-0 z-30">
       {/* Brand */}
-      <div className="flex items-center space-x-3">
-        <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-700 to-green-500 flex items-center justify-center text-white shadow-md shadow-emerald-500/20">
-          <Sprout className="w-6 h-6 animate-pulse" />
+      <div className="flex items-center space-x-2 md:space-x-3 min-w-0">
+        <div className="w-8 h-8 md:w-10 md:h-10 rounded-xl bg-gradient-to-tr from-emerald-700 to-green-500 flex items-center justify-center text-white shadow-md shadow-emerald-500/20 shrink-0">
+          <Sprout className="w-4 h-4 md:w-6 md:h-6" />
         </div>
-        <div>
-          <div className="flex items-center space-x-2">
-            <h1 className="text-lg font-bold tracking-tight text-slate-800 leading-tight">
+        <div className="min-w-0">
+          <div className="flex items-center space-x-1.5 md:space-x-2">
+            <h1 className="text-sm sm:text-base md:text-lg font-bold tracking-tight text-slate-800 leading-tight truncate">
               VIJAYA NURSERY
             </h1>
-            <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200">
+            <span className="hidden sm:inline-block text-[9px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200 shrink-0">
               POS Terminal
             </span>
           </div>
-          <p className="text-xs text-slate-400 font-medium">Main Road, Vissannapeta, Andhra Pradesh</p>
+          <p className="text-[10px] md:text-xs text-slate-400 font-medium truncate">
+            Vissannapeta, Andhra Pradesh
+          </p>
         </div>
       </div>
 

@@ -111,9 +111,9 @@ export const Purchases: React.FC = () => {
   };
 
   return (
-    <div className="p-6 space-y-6 overflow-y-auto max-h-[calc(100vh-4rem)]">
+    <div className="p-3 sm:p-6 space-y-4 sm:space-y-6 overflow-y-auto max-h-[calc(100vh-4rem)]">
       {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-4">
         <div>
           <h2 className="text-xl font-black text-slate-800 tracking-tight flex items-center space-x-2">
             <Truck className="w-6 h-6 text-emerald-600" />
@@ -124,16 +124,16 @@ export const Purchases: React.FC = () => {
           </p>
         </div>
 
-        <div className="flex space-x-2">
+        <div className="flex flex-wrap items-center gap-2">
           <button
             onClick={() => setShowSupplierModal(true)}
-            className="px-3.5 py-2.5 bg-white border border-slate-300 hover:border-emerald-500 text-slate-700 font-semibold text-xs rounded-xl shadow-xs transition-colors cursor-pointer"
+            className="flex-1 sm:flex-initial px-3.5 py-2.5 bg-white border border-slate-300 hover:border-emerald-500 text-slate-700 font-semibold text-xs rounded-xl shadow-xs transition-colors cursor-pointer text-center"
           >
             + Add Supplier
           </button>
           <button
             onClick={() => setShowInwardModal(true)}
-            className="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow-md shadow-emerald-600/20 flex items-center space-x-1.5 transition-colors cursor-pointer"
+            className="flex-1 sm:flex-initial px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow-md shadow-emerald-600/20 flex items-center justify-center space-x-1.5 transition-colors cursor-pointer"
           >
             <Plus className="w-4 h-4" />
             <span>Inward Stock / PO</span>
@@ -142,7 +142,7 @@ export const Purchases: React.FC = () => {
       </div>
 
       {/* Supplier List Chips */}
-      <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs">
+      <div className="bg-white p-3.5 sm:p-4 rounded-2xl border border-slate-200 shadow-xs">
         <div className="text-xs font-bold text-slate-700 mb-2">Registered Nursery Suppliers:</div>
         <div className="flex flex-wrap gap-2">
           {suppliers.map((s) => (
@@ -161,7 +161,7 @@ export const Purchases: React.FC = () => {
       {/* Purchases Inward List */}
       <div className="bg-white rounded-2xl border border-slate-200 shadow-xs overflow-hidden">
         <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs">
+          <table className="w-full text-left text-xs min-w-[650px]">
             <thead className="bg-slate-50 text-slate-500 uppercase tracking-wider font-semibold border-b border-slate-200">
               <tr>
                 <th className="py-3 px-4">PO / Voucher No</th>
@@ -240,8 +240,8 @@ export const Purchases: React.FC = () => {
               </button>
             </div>
 
-            <form onSubmit={handleSubmitInward} className="p-6 space-y-4 overflow-y-auto flex-1 text-xs">
-              <div className="grid grid-cols-2 gap-3">
+            <form onSubmit={handleSubmitInward} className="p-4 sm:p-6 space-y-4 overflow-y-auto flex-1 text-xs">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <label className="block font-semibold text-slate-700 mb-1">Select Supplier</label>
                   <select
@@ -286,11 +286,11 @@ export const Purchases: React.FC = () => {
 
                 <div className="space-y-2">
                   {inwardItems.map((row, idx) => (
-                    <div key={idx} className="p-3 bg-slate-50 border border-slate-200 rounded-xl flex items-center gap-2">
+                    <div key={idx} className="p-3 bg-slate-50 border border-slate-200 rounded-xl flex flex-wrap sm:flex-nowrap items-center gap-2">
                       <select
                         value={row.productId}
                         onChange={(e) => handleUpdateInwardRow(idx, 'productId', e.target.value)}
-                        className="flex-1 py-1.5 px-2 border border-slate-300 rounded-lg bg-white"
+                        className="w-full sm:flex-1 py-1.5 px-2 border border-slate-300 rounded-lg bg-white"
                       >
                         <option value="">Select Plant / Item...</option>
                         {products.map((pr) => (
@@ -300,31 +300,33 @@ export const Purchases: React.FC = () => {
                         ))}
                       </select>
 
-                      <input
-                        type="number"
-                        min="1"
-                        placeholder="Qty"
-                        value={row.quantity}
-                        onChange={(e) => handleUpdateInwardRow(idx, 'quantity', e.target.value)}
-                        className="w-20 py-1.5 px-2 border border-slate-300 rounded-lg bg-white font-mono text-right"
-                      />
+                      <div className="flex items-center gap-2 w-full sm:w-auto">
+                        <input
+                          type="number"
+                          min="1"
+                          placeholder="Qty"
+                          value={row.quantity}
+                          onChange={(e) => handleUpdateInwardRow(idx, 'quantity', e.target.value)}
+                          className="flex-1 sm:w-20 py-1.5 px-2 border border-slate-300 rounded-lg bg-white font-mono text-right"
+                        />
 
-                      <input
-                        type="number"
-                        min="0"
-                        placeholder="Cost"
-                        value={row.costPrice}
-                        onChange={(e) => handleUpdateInwardRow(idx, 'costPrice', e.target.value)}
-                        className="w-24 py-1.5 px-2 border border-slate-300 rounded-lg bg-white font-mono text-right"
-                      />
+                        <input
+                          type="number"
+                          min="0"
+                          placeholder="Cost"
+                          value={row.costPrice}
+                          onChange={(e) => handleUpdateInwardRow(idx, 'costPrice', e.target.value)}
+                          className="flex-1 sm:w-24 py-1.5 px-2 border border-slate-300 rounded-lg bg-white font-mono text-right"
+                        />
 
-                      <button
-                        type="button"
-                        onClick={() => handleRemoveInwardRow(idx)}
-                        className="text-slate-400 hover:text-rose-600 p-1 font-bold"
-                      >
-                        ✕
-                      </button>
+                        <button
+                          type="button"
+                          onClick={() => handleRemoveInwardRow(idx)}
+                          className="text-slate-400 hover:text-rose-600 p-1.5 font-bold"
+                        >
+                          ✕
+                        </button>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -353,15 +355,15 @@ export const Purchases: React.FC = () => {
       {/* NEW SUPPLIER MODAL */}
       {showSupplierModal && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl max-w-md w-full shadow-2xl border border-slate-200 overflow-hidden">
-            <div className="bg-slate-900 text-white p-5 flex items-center justify-between">
+          <div className="bg-white rounded-3xl max-w-md w-full shadow-2xl border border-slate-200 overflow-hidden max-h-[90vh] flex flex-col">
+            <div className="bg-slate-900 text-white p-4 sm:p-5 flex items-center justify-between">
               <h3 className="font-bold text-sm">Register Nursery Supplier</h3>
               <button onClick={() => setShowSupplierModal(false)} className="text-slate-400 p-1">
                 ✕
               </button>
             </div>
 
-            <form onSubmit={handleCreateSupplier} className="p-5 space-y-3.5 text-xs">
+            <form onSubmit={handleCreateSupplier} className="p-4 sm:p-5 space-y-3.5 text-xs overflow-y-auto">
               <div>
                 <label className="block font-semibold text-slate-700 mb-1">Supplier Nursery / Firm</label>
                 <input

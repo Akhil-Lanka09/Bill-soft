@@ -160,9 +160,9 @@ export const Products: React.FC = () => {
   };
 
   return (
-    <div className="p-6 space-y-6 overflow-y-auto max-h-[calc(100vh-4rem)]">
+    <div className="p-3 sm:p-6 space-y-4 sm:space-y-6 overflow-y-auto max-h-[calc(100vh-4rem)]">
       {/* Header & Stats */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-4">
         <div>
           <h2 className="text-xl font-black text-slate-800 tracking-tight flex items-center space-x-2">
             <Package className="w-6 h-6 text-emerald-600" />
@@ -176,7 +176,7 @@ export const Products: React.FC = () => {
         {user?.role !== 'agent' && (
           <button
             onClick={() => setShowAddModal(true)}
-            className="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow-md shadow-emerald-600/20 flex items-center space-x-1.5 transition-colors cursor-pointer self-start"
+            className="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow-md shadow-emerald-600/20 flex items-center space-x-1.5 transition-colors cursor-pointer self-start sm:self-auto"
           >
             <Plus className="w-4 h-4" />
             <span>Add New Plant / Item</span>
@@ -186,12 +186,12 @@ export const Products: React.FC = () => {
 
       {/* Summary KPI Cards */}
       {summary && (
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4">
+          <div className="bg-white p-3.5 sm:p-4 rounded-2xl border border-slate-200 shadow-xs">
             <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
               Total Products
             </div>
-            <div className="text-2xl font-black text-slate-800 mt-1 font-mono">
+            <div className="text-xl sm:text-2xl font-black text-slate-800 mt-1 font-mono">
               {summary.totalProducts}
             </div>
             <div className="text-[11px] text-emerald-600 font-medium mt-1">
@@ -199,33 +199,33 @@ export const Products: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-white p-4 rounded-2xl border border-amber-200 bg-amber-50/20 shadow-xs">
+          <div className="bg-white p-3.5 sm:p-4 rounded-2xl border border-amber-200 bg-amber-50/20 shadow-xs">
             <div className="text-[11px] font-bold text-amber-700 uppercase tracking-wider">
               Low Stock Alert
             </div>
-            <div className="text-2xl font-black text-amber-800 mt-1 font-mono">
+            <div className="text-xl sm:text-2xl font-black text-amber-800 mt-1 font-mono">
               {summary.lowStock}
             </div>
             <div className="text-[11px] text-amber-700 font-medium mt-1">
-              Below threshold reorder level
+              Below threshold reorder
             </div>
           </div>
 
-          <div className="bg-white p-4 rounded-2xl border border-rose-200 bg-rose-50/20 shadow-xs">
+          <div className="bg-white p-3.5 sm:p-4 rounded-2xl border border-rose-200 bg-rose-50/20 shadow-xs">
             <div className="text-[11px] font-bold text-rose-700 uppercase tracking-wider">
               Out of Stock
             </div>
-            <div className="text-2xl font-black text-rose-800 mt-1 font-mono">
+            <div className="text-xl sm:text-2xl font-black text-rose-800 mt-1 font-mono">
               {summary.outOfStock}
             </div>
             <div className="text-[11px] text-rose-600 font-medium mt-1">Zero units available</div>
           </div>
 
-          <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs">
+          <div className="bg-white p-3.5 sm:p-4 rounded-2xl border border-slate-200 shadow-xs">
             <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
               Total Retail Valuation
             </div>
-            <div className="text-2xl font-black text-emerald-700 mt-1 font-mono">
+            <div className="text-xl sm:text-2xl font-black text-emerald-700 mt-1 font-mono">
               ₹{summary.stockValue?.toLocaleString('en-IN') || 0}
             </div>
             <div className="text-[11px] text-slate-400 font-medium mt-1">Estimated catalog value</div>
@@ -234,7 +234,7 @@ export const Products: React.FC = () => {
       )}
 
       {/* Filter and Search Bar */}
-      <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs flex flex-col md:flex-row gap-3">
+      <div className="bg-white p-3.5 sm:p-4 rounded-2xl border border-slate-200 shadow-xs flex flex-col md:flex-row gap-3">
         <form onSubmit={handleSearchSubmit} className="flex-1 relative">
           <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
           <input
@@ -250,7 +250,7 @@ export const Products: React.FC = () => {
           <select
             value={categoryFilter}
             onChange={(e) => setCategoryFilter(e.target.value)}
-            className="py-2 px-3 bg-slate-50 border border-slate-200 rounded-xl text-xs font-medium text-slate-700 outline-hidden"
+            className="py-2 px-3 bg-slate-50 border border-slate-200 rounded-xl text-xs font-medium text-slate-700 outline-hidden flex-1 md:flex-initial"
           >
             <option value="">All Categories</option>
             {categories.map((c) => (
@@ -263,7 +263,7 @@ export const Products: React.FC = () => {
           <select
             value={stockStatusFilter}
             onChange={(e) => setStockStatusFilter(e.target.value)}
-            className="py-2 px-3 bg-slate-50 border border-slate-200 rounded-xl text-xs font-medium text-slate-700 outline-hidden"
+            className="py-2 px-3 bg-slate-50 border border-slate-200 rounded-xl text-xs font-medium text-slate-700 outline-hidden flex-1 md:flex-initial"
           >
             <option value="">All Stock Status</option>
             <option value="in_stock">In Stock</option>
@@ -276,7 +276,7 @@ export const Products: React.FC = () => {
       {/* Products Table */}
       <div className="bg-white rounded-2xl border border-slate-200 shadow-xs overflow-hidden">
         <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs">
+          <table className="w-full text-left text-xs min-w-[700px]">
             <thead className="bg-slate-50 text-slate-500 uppercase tracking-wider font-semibold border-b border-slate-200">
               <tr>
                 <th className="py-3 px-4">Plant / Product Details</th>
@@ -384,7 +384,7 @@ export const Products: React.FC = () => {
       {/* STOCK ADJUSTMENT MODAL */}
       {showAdjustModal && selectedProduct && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl max-w-md w-full shadow-2xl border border-slate-200 overflow-hidden">
+          <div className="bg-white rounded-3xl max-w-md w-full shadow-2xl border border-slate-200 overflow-hidden max-h-[90vh] flex flex-col">
             <div className="bg-slate-900 text-white p-4 flex items-center justify-between">
               <div>
                 <h3 className="font-bold text-sm">Adjust Stock</h3>
@@ -398,7 +398,7 @@ export const Products: React.FC = () => {
               </button>
             </div>
 
-            <form onSubmit={handleSubmitAdjustment} className="p-5 space-y-4 text-xs">
+            <form onSubmit={handleSubmitAdjustment} className="p-4 sm:p-5 space-y-4 text-xs overflow-y-auto">
               <div>
                 <label className="block font-semibold text-slate-700 mb-1">Current Stock</label>
                 <div className="text-base font-bold font-mono text-slate-800">
@@ -525,16 +525,16 @@ export const Products: React.FC = () => {
       {/* ADD PLANT MODAL */}
       {showAddModal && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl max-w-xl w-full shadow-2xl border border-slate-200 overflow-hidden">
-            <div className="bg-slate-900 text-white p-5 flex items-center justify-between">
+          <div className="bg-white rounded-3xl max-w-xl w-full shadow-2xl border border-slate-200 overflow-hidden max-h-[90vh] flex flex-col">
+            <div className="bg-slate-900 text-white p-4 sm:p-5 flex items-center justify-between">
               <h3 className="font-bold text-sm">Add New Plant / Nursery Item</h3>
               <button onClick={() => setShowAddModal(false)} className="text-slate-400 p-1">
                 ✕
               </button>
             </div>
 
-            <form onSubmit={handleCreateProduct} className="p-6 space-y-4 text-xs">
-              <div className="grid grid-cols-2 gap-3">
+            <form onSubmit={handleCreateProduct} className="p-4 sm:p-6 space-y-4 text-xs overflow-y-auto">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <label className="block font-semibold text-slate-700 mb-1">Common English Name</label>
                   <input
@@ -559,7 +559,7 @@ export const Products: React.FC = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <label className="block font-semibold text-slate-700 mb-1">Botanical Name</label>
                   <input
@@ -587,7 +587,7 @@ export const Products: React.FC = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div>
                   <label className="block font-semibold text-slate-700 mb-1">SKU / Item Code</label>
                   <input
@@ -627,7 +627,7 @@ export const Products: React.FC = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div>
                   <label className="block font-semibold text-slate-700 mb-1">Cost Price (₹)</label>
                   <input

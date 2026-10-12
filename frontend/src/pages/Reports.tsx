@@ -105,9 +105,9 @@ export const Reports: React.FC = () => {
   };
 
   return (
-    <div className="p-6 space-y-6 overflow-y-auto max-h-[calc(100vh-4rem)]">
+    <div className="p-3 sm:p-6 space-y-4 sm:space-y-6 overflow-y-auto max-h-[calc(100vh-4rem)]">
       {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-4">
         <div>
           <h2 className="text-xl font-black text-slate-800 tracking-tight flex items-center space-x-2">
             <BarChart3 className="w-6 h-6 text-emerald-600" />
@@ -119,10 +119,10 @@ export const Reports: React.FC = () => {
         </div>
 
         {/* Tab Switcher */}
-        <div className="flex bg-slate-200/80 p-1 rounded-xl text-xs font-semibold self-start">
+        <div className="flex overflow-x-auto max-w-full bg-slate-200/80 p-1 rounded-xl text-xs font-semibold shrink-0">
           <button
             onClick={() => setActiveTab('sales')}
-            className={`px-3 py-1.5 rounded-lg transition-all cursor-pointer ${
+            className={`px-3 py-1.5 rounded-lg transition-all cursor-pointer whitespace-nowrap ${
               activeTab === 'sales' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-600 hover:text-slate-900'
             }`}
           >
@@ -130,7 +130,7 @@ export const Reports: React.FC = () => {
           </button>
           <button
             onClick={() => setActiveTab('gstr1')}
-            className={`px-3 py-1.5 rounded-lg transition-all cursor-pointer ${
+            className={`px-3 py-1.5 rounded-lg transition-all cursor-pointer whitespace-nowrap ${
               activeTab === 'gstr1' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-600 hover:text-slate-900'
             }`}
           >
@@ -138,7 +138,7 @@ export const Reports: React.FC = () => {
           </button>
           <button
             onClick={() => setActiveTab('closing')}
-            className={`px-3 py-1.5 rounded-lg transition-all cursor-pointer ${
+            className={`px-3 py-1.5 rounded-lg transition-all cursor-pointer whitespace-nowrap ${
               activeTab === 'closing' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-600 hover:text-slate-900'
             }`}
           >
@@ -146,7 +146,7 @@ export const Reports: React.FC = () => {
           </button>
           <button
             onClick={() => setActiveTab('valuation')}
-            className={`px-3 py-1.5 rounded-lg transition-all cursor-pointer ${
+            className={`px-3 py-1.5 rounded-lg transition-all cursor-pointer whitespace-nowrap ${
               activeTab === 'valuation' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-600 hover:text-slate-900'
             }`}
           >

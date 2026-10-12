@@ -140,9 +140,9 @@ export const Customers: React.FC = () => {
   const customersWithDebt = customers.filter((c) => c.currentBalance > 0).length;
 
   return (
-    <div className="p-6 space-y-6 overflow-y-auto max-h-[calc(100vh-4rem)]">
+    <div className="p-3 sm:p-6 space-y-4 sm:space-y-6 overflow-y-auto max-h-[calc(100vh-4rem)]">
       {/* Header & Quick Stats */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-4">
         <div>
           <h2 className="text-xl font-black text-slate-800 tracking-tight flex items-center space-x-2">
             <Users className="w-6 h-6 text-emerald-600" />
@@ -155,7 +155,7 @@ export const Customers: React.FC = () => {
 
         <button
           onClick={() => setShowAddModal(true)}
-          className="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow-md shadow-emerald-600/20 flex items-center space-x-1.5 transition-colors cursor-pointer self-start"
+          className="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow-md shadow-emerald-600/20 flex items-center space-x-1.5 transition-colors cursor-pointer self-start sm:self-auto"
         >
           <Plus className="w-4 h-4" />
           <span>Register New Customer</span>
@@ -163,12 +163,12 @@ export const Customers: React.FC = () => {
       </div>
 
       {/* KPI Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-4">
+        <div className="bg-white p-3.5 sm:p-4 rounded-2xl border border-slate-200 shadow-xs">
           <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
             Total Customers
           </div>
-          <div className="text-2xl font-black text-slate-800 mt-1 font-mono">
+          <div className="text-xl sm:text-2xl font-black text-slate-800 mt-1 font-mono">
             {customers.length}
           </div>
           <div className="text-[11px] text-slate-500 font-medium mt-1">
@@ -176,11 +176,11 @@ export const Customers: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-white p-4 rounded-2xl border border-rose-200 bg-rose-50/20 shadow-xs">
+        <div className="bg-white p-3.5 sm:p-4 rounded-2xl border border-rose-200 bg-rose-50/20 shadow-xs">
           <div className="text-[11px] font-bold text-rose-700 uppercase tracking-wider">
             Total Outstanding Receivables
           </div>
-          <div className="text-2xl font-black text-rose-700 mt-1 font-mono">
+          <div className="text-xl sm:text-2xl font-black text-rose-700 mt-1 font-mono">
             ₹{totalOutstanding.toLocaleString('en-IN')}
           </div>
           <div className="text-[11px] text-rose-600 font-medium mt-1">
@@ -188,11 +188,11 @@ export const Customers: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-white p-4 rounded-2xl border border-emerald-200 bg-emerald-50/20 shadow-xs">
+        <div className="bg-white p-3.5 sm:p-4 rounded-2xl border border-emerald-200 bg-emerald-50/20 shadow-xs">
           <div className="text-[11px] font-bold text-emerald-700 uppercase tracking-wider">
             Total Lifetime Sales
           </div>
-          <div className="text-2xl font-black text-emerald-800 mt-1 font-mono">
+          <div className="text-xl sm:text-2xl font-black text-emerald-800 mt-1 font-mono">
             ₹{customers.reduce((acc, c) => acc + (c.totalPurchases || 0), 0).toLocaleString('en-IN')}
           </div>
           <div className="text-[11px] text-emerald-600 font-medium mt-1">Cumulative client orders</div>
@@ -200,7 +200,7 @@ export const Customers: React.FC = () => {
       </div>
 
       {/* Search & Toggle Filters */}
-      <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs flex flex-col md:flex-row gap-3">
+      <div className="bg-white p-3.5 sm:p-4 rounded-2xl border border-slate-200 shadow-xs flex flex-col md:flex-row gap-3">
         <form onSubmit={handleSearch} className="flex-1 relative">
           <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
           <input
@@ -227,7 +227,7 @@ export const Customers: React.FC = () => {
       {/* Customers Table */}
       <div className="bg-white rounded-2xl border border-slate-200 shadow-xs overflow-hidden">
         <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs">
+          <table className="w-full text-left text-xs min-w-[680px]">
             <thead className="bg-slate-50 text-slate-500 uppercase tracking-wider font-semibold border-b border-slate-200">
               <tr>
                 <th className="py-3 px-4">Customer Name</th>
@@ -314,8 +314,8 @@ export const Customers: React.FC = () => {
       {/* RECORD PAYMENT MODAL */}
       {showPaymentModal && selectedCustomer && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl max-w-md w-full shadow-2xl border border-slate-200 overflow-hidden">
-            <div className="bg-slate-900 text-white p-5 flex items-center justify-between">
+          <div className="bg-white rounded-3xl max-w-md w-full shadow-2xl border border-slate-200 overflow-hidden max-h-[90vh] flex flex-col">
+            <div className="bg-slate-900 text-white p-4 sm:p-5 flex items-center justify-between">
               <div>
                 <h3 className="font-bold text-sm">Receive Customer Payment</h3>
                 <p className="text-xs text-slate-400">{selectedCustomer.name}</p>
@@ -325,7 +325,7 @@ export const Customers: React.FC = () => {
               </button>
             </div>
 
-            <form onSubmit={handleSubmitPayment} className="p-5 space-y-4 text-xs">
+            <form onSubmit={handleSubmitPayment} className="p-4 sm:p-5 space-y-4 text-xs overflow-y-auto">
               <div className="p-3 bg-rose-50 border border-rose-200 rounded-xl flex justify-between items-center text-rose-800">
                 <span className="font-semibold">Current Balance Due:</span>
                 <span className="text-base font-black font-mono">
@@ -481,16 +481,16 @@ export const Customers: React.FC = () => {
       {/* ADD CUSTOMER MODAL */}
       {showAddModal && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl max-w-lg w-full shadow-2xl border border-slate-200 overflow-hidden">
-            <div className="bg-slate-900 text-white p-5 flex items-center justify-between">
+          <div className="bg-white rounded-3xl max-w-lg w-full shadow-2xl border border-slate-200 overflow-hidden max-h-[90vh] flex flex-col">
+            <div className="bg-slate-900 text-white p-4 sm:p-5 flex items-center justify-between">
               <h3 className="font-bold text-sm">Register New Customer</h3>
               <button onClick={() => setShowAddModal(false)} className="text-slate-400 p-1">
                 ✕
               </button>
             </div>
 
-            <form onSubmit={handleCreateCustomer} className="p-6 space-y-3.5 text-xs">
-              <div className="grid grid-cols-2 gap-3">
+            <form onSubmit={handleCreateCustomer} className="p-4 sm:p-6 space-y-3.5 text-xs overflow-y-auto">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <label className="block font-semibold text-slate-700 mb-1">Customer / Firm Name</label>
                   <input
@@ -516,7 +516,7 @@ export const Customers: React.FC = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <label className="block font-semibold text-slate-700 mb-1">GSTIN (Optional)</label>
                   <input
@@ -551,7 +551,7 @@ export const Customers: React.FC = () => {
                 />
               </div>
 
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div>
                   <label className="block font-semibold text-slate-700 mb-1">Credit Limit (₹)</label>
                   <input

@@ -4,6 +4,7 @@ import { AuthProvider, useAuth } from './context/AuthContext';
 import { CartProvider } from './context/CartContext';
 import { Navbar } from './components/common/Navbar';
 import { Sidebar } from './components/common/Sidebar';
+import { MobileBottomNav } from './components/common/MobileBottomNav';
 
 // Pages
 import { Login } from './pages/Login';
@@ -37,9 +38,9 @@ const ProtectedLayout: React.FC = () => {
     <CartProvider>
       <div className="min-h-screen flex flex-col bg-slate-100">
         <Navbar />
-        <div className="flex flex-1 overflow-hidden">
+        <div className="flex flex-1 overflow-hidden relative">
           <Sidebar />
-          <main className="flex-1 overflow-hidden">
+          <main className="flex-1 overflow-y-auto pb-16 md:pb-0">
             <Routes>
               <Route path="/" element={<POSBilling />} />
               <Route path="/bills" element={<BillsList />} />
@@ -52,6 +53,7 @@ const ProtectedLayout: React.FC = () => {
             </Routes>
           </main>
         </div>
+        <MobileBottomNav />
       </div>
     </CartProvider>
   );

@@ -211,9 +211,9 @@ export const BillsList: React.FC = () => {
   const totalDue = bills.filter((b) => b.status === 'active').reduce((acc, b) => acc + b.balanceDue, 0);
 
   return (
-    <div className="p-6 space-y-6 overflow-y-auto max-h-[calc(100vh-4rem)]">
+    <div className="p-3 sm:p-6 space-y-4 sm:space-y-6 overflow-y-auto max-h-[calc(100vh-4rem)]">
       {/* Header with Title and Download Actions */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-4">
         <div>
           <h2 className="text-xl font-black text-slate-800 tracking-tight flex items-center space-x-2">
             <Receipt className="w-6 h-6 text-emerald-600" />
@@ -225,18 +225,18 @@ export const BillsList: React.FC = () => {
         </div>
 
         {/* Download & Print Action Buttons */}
-        <div className="flex items-center space-x-2">
+        <div className="flex flex-wrap items-center gap-2">
           <button
             onClick={handleDownloadCSV}
-            className="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold flex items-center space-x-1.5 transition-colors shadow-xs cursor-pointer"
+            className="flex-1 sm:flex-initial px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold flex items-center justify-center space-x-1.5 transition-colors shadow-xs cursor-pointer"
             title="Download invoices for selected period as Excel/CSV"
           >
             <Download className="w-4 h-4" />
-            <span>Download Invoices (CSV / Excel)</span>
+            <span>Download Invoices (CSV)</span>
           </button>
           <button
             onClick={handlePrintRegister}
-            className="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-semibold flex items-center space-x-1.5 transition-colors cursor-pointer"
+            className="flex-1 sm:flex-initial px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-semibold flex items-center justify-center space-x-1.5 transition-colors cursor-pointer"
             title="Print invoice list"
           >
             <Printer className="w-4 h-4 text-slate-600" />
@@ -246,7 +246,7 @@ export const BillsList: React.FC = () => {
       </div>
 
       {/* Period Summary Metric Banner */}
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2.5 sm:gap-3">
         <div className="bg-white p-3.5 rounded-2xl border border-slate-200 shadow-xs">
           <div className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Invoices Count</div>
           <div className="text-xl font-black text-slate-800 mt-0.5">{bills.length}</div>
@@ -357,7 +357,7 @@ export const BillsList: React.FC = () => {
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              placeholder="Search invoice number (BN/2026-27/...) or customer phone..."
+              placeholder="Search invoice number (VN/2026-27/...) or customer phone..."
               className="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-medium outline-hidden focus:border-emerald-500"
             />
           </form>
@@ -366,7 +366,7 @@ export const BillsList: React.FC = () => {
             <select
               value={paymentStatusFilter}
               onChange={(e) => setPaymentStatusFilter(e.target.value)}
-              className="py-2 px-3 bg-slate-50 border border-slate-200 rounded-xl text-xs font-medium text-slate-700 outline-hidden"
+              className="py-2 px-3 bg-slate-50 border border-slate-200 rounded-xl text-xs font-medium text-slate-700 outline-hidden flex-1 md:flex-initial"
             >
               <option value="">All Payment Types</option>
               <option value="paid">Paid Full</option>
@@ -377,7 +377,7 @@ export const BillsList: React.FC = () => {
             <select
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value)}
-              className="py-2 px-3 bg-slate-50 border border-slate-200 rounded-xl text-xs font-medium text-slate-700 outline-hidden"
+              className="py-2 px-3 bg-slate-50 border border-slate-200 rounded-xl text-xs font-medium text-slate-700 outline-hidden flex-1 md:flex-initial"
             >
               <option value="">All Statuses</option>
               <option value="active">Active</option>
@@ -391,7 +391,7 @@ export const BillsList: React.FC = () => {
       {/* Bills Table */}
       <div className="bg-white rounded-2xl border border-slate-200 shadow-xs overflow-hidden">
         <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs">
+          <table className="w-full text-left text-xs min-w-[720px]">
             <thead className="bg-slate-50 text-slate-500 uppercase tracking-wider font-semibold border-b border-slate-200">
               <tr>
                 <th className="py-3 px-4">Invoice No</th>
@@ -508,7 +508,7 @@ export const BillsList: React.FC = () => {
       {/* CANCEL BILL MODAL */}
       {showCancelModal && billToCancel && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl max-w-md w-full shadow-2xl border border-slate-200 overflow-hidden">
+          <div className="bg-white rounded-3xl max-w-md w-full shadow-2xl border border-slate-200 overflow-hidden max-h-[90vh] flex flex-col">
             <div className="bg-rose-600 text-white p-4 flex items-center justify-between">
               <div>
                 <h3 className="font-bold text-sm">Void Invoice: {billToCancel.invoiceNumber}</h3>
@@ -522,7 +522,7 @@ export const BillsList: React.FC = () => {
               </button>
             </div>
 
-            <form onSubmit={handleConfirmCancel} className="p-5 space-y-4 text-xs">
+            <form onSubmit={handleConfirmCancel} className="p-4 sm:p-5 space-y-4 text-xs overflow-y-auto">
               <p className="text-slate-600">
                 Are you sure you want to cancel bill <strong className="font-mono">{billToCancel.invoiceNumber}</strong> for ₹{billToCancel.grandTotal}?
                 All inventory quantities will automatically be reversed in stock ledgers.
