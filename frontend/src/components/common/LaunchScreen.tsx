@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   Sparkles,
   Rocket,
@@ -8,17 +8,237 @@ import {
   ArrowRight,
   TrendingUp,
   Boxes,
+  PartyPopper,
 } from 'lucide-react';
 
 interface LaunchScreenProps {
   onComplete: () => void;
 }
 
+interface ConfettiParticle {
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  color: string;
+  size: number;
+  rotation: number;
+  vRot: number;
+  shape: 'rect' | 'circle' | 'ribbon';
+  life: number;
+  maxLife: number;
+  opacity: number;
+}
+
+// Balloon definition for celebration on left & right sides
+interface BalloonItem {
+  id: number;
+  side: 'left' | 'right';
+  posPercent: number; // offset from screen edge
+  color: string;
+  shineColor: string;
+  size: number; // width in px
+  duration: number; // rise time in s
+  delay: number; // delay in s
+  swayDuration: number;
+}
+
+const BALLOON_PALETTES = [
+  { color: 'from-emerald-500 to-emerald-700', shine: 'rgba(167,243,208,0.7)', hex: '#10b981' },
+  { color: 'from-amber-400 to-amber-600', shine: 'rgba(254,240,138,0.7)', hex: '#f59e0b' },
+  { color: 'from-rose-500 to-rose-700', shine: 'rgba(254,205,211,0.7)', hex: '#f43f5e' },
+  { color: 'from-cyan-400 to-teal-600', shine: 'rgba(207,250,254,0.7)', hex: '#06b6d4' },
+  { color: 'from-purple-500 to-indigo-700', shine: 'rgba(233,213,255,0.7)', hex: '#8b5cf6' },
+  { color: 'from-orange-400 to-red-600', shine: 'rgba(254,215,170,0.7)', hex: '#f97316' },
+  { color: 'from-pink-400 to-pink-600', shine: 'rgba(251,207,232,0.7)', hex: '#ec4899' },
+];
+
 export const LaunchScreen: React.FC<LaunchScreenProps> = ({ onComplete }) => {
   // 'launch' | 'cinematic' | 'exiting'
   const [phase, setPhase] = useState<'launch' | 'cinematic' | 'exiting'>('launch');
   const [progress, setProgress] = useState<number>(0);
   const [statusMessage, setStatusMessage] = useState<string>('Initializing POS Engine...');
+  const [balloons, setBalloons] = useState<BalloonItem[]>([]);
+
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const particlesRef = useRef<ConfettiParticle[]>([]);
+  const animFrameIdRef = useRef<number | null>(null);
+
+  // Initialize Balloons on the Sides when cinematic starts
+  useEffect(() => {
+    if (phase !== 'cinematic') return;
+
+    const sideBalloons: BalloonItem[] = [];
+    const countPerSide = 8;
+
+    // Left side balloons (spread out in left 0% - 18% width)
+    for (let i = 0; i < countPerSide; i++) {
+      const pal = BALLOON_PALETTES[i % BALLOON_PALETTES.length];
+      sideBalloons.push({
+        id: i,
+        side: 'left',
+        posPercent: 1.5 + (i * 2.2), // 1.5% to ~17% from left edge
+        color: pal.color,
+        shineColor: pal.shine,
+        size: 42 + Math.floor(Math.random() * 22),
+        duration: 5.5 + Math.random() * 3.5,
+        delay: (i * 0.45) % 2.5,
+        swayDuration: 2.5 + Math.random() * 1.5,
+      });
+    }
+
+    // Right side balloons (spread out in right 0% - 18% width)
+    for (let i = 0; i < countPerSide; i++) {
+      const pal = BALLOON_PALETTES[(i + 3) % BALLOON_PALETTES.length];
+      sideBalloons.push({
+        id: i + countPerSide,
+        side: 'right',
+        posPercent: 1.5 + (i * 2.2), // 1.5% to ~17% from right edge
+        color: pal.color,
+        shineColor: pal.shine,
+        size: 42 + Math.floor(Math.random() * 22),
+        duration: 5.5 + Math.random() * 3.5,
+        delay: 0.2 + ((i * 0.45) % 2.5),
+        swayDuration: 2.5 + Math.random() * 1.5,
+      });
+    }
+
+    setBalloons(sideBalloons);
+  }, [phase]);
+
+  // Burst Party Poppers from the sides
+  const firePartyPoppers = (source: 'both' | 'left' | 'right' = 'both') => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const width = canvas.width;
+    const height = canvas.height;
+    const colors = ['#10b981', '#34d399', '#f59e0b', '#fbbf24', '#f43f5e', '#ec4899', '#8b5cf6', '#38bdf8', '#ffffff'];
+
+    const createBurst = (originX: number, originY: number, angleDeg: number, spreadDeg: number, count = 75) => {
+      for (let i = 0; i < count; i++) {
+        const angle = ((angleDeg - spreadDeg / 2) + Math.random() * spreadDeg) * (Math.PI / 180);
+        const velocity = 12 + Math.random() * 18;
+        const shapes: ('rect' | 'circle' | 'ribbon')[] = ['rect', 'circle', 'ribbon'];
+        const shape = shapes[Math.floor(Math.random() * shapes.length)];
+
+        particlesRef.current.push({
+          x: originX,
+          y: originY,
+          vx: Math.cos(angle) * velocity,
+          vy: Math.sin(angle) * velocity,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          size: shape === 'ribbon' ? 7 + Math.random() * 7 : 5 + Math.random() * 6,
+          rotation: Math.random() * 360,
+          vRot: (Math.random() - 0.5) * 16,
+          shape,
+          life: 0,
+          maxLife: 100 + Math.random() * 60,
+          opacity: 1,
+        });
+      }
+    };
+
+    if (source === 'both' || source === 'left') {
+      // Bottom-left cannon firing upward and into the center
+      createBurst(20, height - 30, -50, 45, 80);
+      // Mid-left cannon
+      createBurst(10, height * 0.45, -25, 40, 50);
+    }
+
+    if (source === 'both' || source === 'right') {
+      // Bottom-right cannon firing upward and into the center
+      createBurst(width - 20, height - 30, -130, 45, 80);
+      // Mid-right cannon
+      createBurst(width - 10, height * 0.45, -155, 40, 50);
+    }
+  };
+
+  // Canvas Party Popper Animation Loop
+  useEffect(() => {
+    if (phase !== 'cinematic') return;
+
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const handleResize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    // Initial Celebration Pop from both flanks!
+    firePartyPoppers('both');
+
+    // Second wave at 1.2s, Third wave at 2.6s
+    const t1 = setTimeout(() => firePartyPoppers('both'), 1200);
+    const t2 = setTimeout(() => firePartyPoppers('both'), 2600);
+
+    let isRunning = true;
+    const gravity = 0.38;
+    const drag = 0.985;
+
+    const loop = () => {
+      if (!isRunning) return;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      const particles = particlesRef.current;
+      for (let i = particles.length - 1; i >= 0; i--) {
+        const p = particles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += gravity;
+        p.vx *= drag;
+        p.vy *= drag;
+        p.rotation += p.vRot;
+        p.life += 1;
+
+        if (p.life > p.maxLife * 0.7) {
+          p.opacity = Math.max(0, 1 - (p.life - p.maxLife * 0.7) / (p.maxLife * 0.3));
+        }
+
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate((p.rotation * Math.PI) / 180);
+        ctx.globalAlpha = p.opacity;
+        ctx.fillStyle = p.color;
+
+        if (p.shape === 'rect') {
+          ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.55);
+        } else if (p.shape === 'circle') {
+          ctx.beginPath();
+          ctx.arc(0, 0, p.size / 2, 0, Math.PI * 2);
+          ctx.fill();
+        } else {
+          // Ribbon strip
+          ctx.fillRect(-p.size, -p.size * 0.25, p.size * 2, p.size * 0.5);
+        }
+
+        ctx.restore();
+
+        if (p.life >= p.maxLife || p.y > canvas.height + 50) {
+          particles.splice(i, 1);
+        }
+      }
+
+      animFrameIdRef.current = requestAnimationFrame(loop);
+    };
+
+    animFrameIdRef.current = requestAnimationFrame(loop);
+
+    return () => {
+      isRunning = false;
+      clearTimeout(t1);
+      clearTimeout(t2);
+      if (animFrameIdRef.current) cancelAnimationFrame(animFrameIdRef.current);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [phase]);
 
   const handleLaunchClick = () => {
     setPhase('cinematic');
@@ -42,7 +262,7 @@ export const LaunchScreen: React.FC<LaunchScreenProps> = ({ onComplete }) => {
           setTimeout(() => {
             setPhase('exiting');
             setTimeout(onComplete, 500);
-          }, 400);
+          }, 500);
           return 100;
         }
 
@@ -56,7 +276,7 @@ export const LaunchScreen: React.FC<LaunchScreenProps> = ({ onComplete }) => {
         }
         return next;
       });
-    }, 55);
+    }, 60);
 
     return () => clearInterval(interval);
   }, [phase, onComplete]);
@@ -80,6 +300,145 @@ export const LaunchScreen: React.FC<LaunchScreenProps> = ({ onComplete }) => {
           backgroundSize: '48px 48px',
         }}
       />
+
+      {/* Full-Screen Confetti Canvas for Side Party Popper Cannons */}
+      {phase === 'cinematic' && (
+        <canvas
+          ref={canvasRef}
+          className="absolute inset-0 pointer-events-none z-20"
+        />
+      )}
+
+      {/* CELEBRATION BALLOONS ON SIDES (LEFT & RIGHT) */}
+      {phase === 'cinematic' && (
+        <div className="absolute inset-0 pointer-events-none overflow-hidden z-15">
+          {balloons.map((b) => {
+            const isLeft = b.side === 'left';
+            return (
+              <div
+                key={b.id}
+                className="absolute"
+                style={{
+                  left: isLeft ? `${b.posPercent}%` : undefined,
+                  right: !isLeft ? `${b.posPercent}%` : undefined,
+                  bottom: '0',
+                  animation: `balloonRise ${b.duration}s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite`,
+                  animationDelay: `${b.delay}s`,
+                }}
+              >
+                {/* Balloon Sway Container */}
+                <div
+                  style={{
+                    animation: `balloonSway ${b.swayDuration}s ease-in-out infinite alternate`,
+                  }}
+                  className="flex flex-col items-center"
+                >
+                  {/* Balloon Egg Body */}
+                  <div
+                    className={`relative rounded-[50%_50%_50%_50%_/_40%_40%_60%_60%] bg-gradient-to-br ${b.color} shadow-lg`}
+                    style={{
+                      width: `${b.size}px`,
+                      height: `${b.size * 1.25}px`,
+                      boxShadow: `0 10px 25px rgba(0,0,0,0.4), inset -4px -4px 10px rgba(0,0,0,0.3)`,
+                    }}
+                  >
+                    {/* Glossy Curved Highlight */}
+                    <div
+                      className="absolute top-2 left-2 rounded-full pointer-events-none"
+                      style={{
+                        width: `${b.size * 0.28}px`,
+                        height: `${b.size * 0.42}px`,
+                        backgroundColor: b.shineColor,
+                        transform: 'rotate(-25deg)',
+                        filter: 'blur(1px)',
+                      }}
+                    />
+
+                    {/* Secondary Rim Reflection */}
+                    <div
+                      className="absolute bottom-2 right-2 rounded-full pointer-events-none opacity-40"
+                      style={{
+                        width: `${b.size * 0.18}px`,
+                        height: `${b.size * 0.18}px`,
+                        backgroundColor: '#ffffff',
+                      }}
+                    />
+                  </div>
+
+                  {/* Balloon Knot */}
+                  <div
+                    className="w-2.5 h-1.5 -mt-0.5 rounded-b-sm bg-inherit opacity-90"
+                    style={{
+                      backgroundColor: b.shineColor ? undefined : '#10b981',
+                    }}
+                  />
+
+                  {/* Hanging Wavy String */}
+                  <svg
+                    width="14"
+                    height="45"
+                    viewBox="0 0 14 45"
+                    className="stroke-slate-400/80 fill-none -mt-0.5"
+                  >
+                    <path
+                      d="M7,0 Q2,12 7,22 T7,44"
+                      strokeWidth="1.2"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
+
+      {/* SIDE PARTY POPPERS UI ON FLANKS */}
+      {phase === 'cinematic' && (
+        <>
+          {/* Left Side Popper Flank */}
+          <div
+            onClick={() => firePartyPoppers('left')}
+            className="absolute left-3 sm:left-6 bottom-6 sm:bottom-12 z-30 cursor-pointer group flex items-center space-x-2 bg-slate-900/80 border border-emerald-500/40 hover:border-emerald-400 p-2.5 sm:p-3 rounded-2xl backdrop-blur-md shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 animate-popper-blast"
+            title="Click to fire left popper!"
+          >
+            <div className="relative">
+              <span className="text-2xl sm:text-3xl block group-hover:rotate-12 transition-transform">
+                🎉
+              </span>
+              <span className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
+            </div>
+            <div className="hidden md:block text-left pr-1">
+              <div className="text-[11px] font-black text-emerald-300 uppercase tracking-wider flex items-center space-x-1">
+                <span>Party Blast</span>
+                <Sparkles className="w-3 h-3 text-amber-300" />
+              </div>
+              <div className="text-[9px] text-slate-400">Click to pop!</div>
+            </div>
+          </div>
+
+          {/* Right Side Popper Flank */}
+          <div
+            onClick={() => firePartyPoppers('right')}
+            className="absolute right-3 sm:right-6 bottom-6 sm:bottom-12 z-30 cursor-pointer group flex items-center space-x-2 bg-slate-900/80 border border-amber-500/40 hover:border-amber-400 p-2.5 sm:p-3 rounded-2xl backdrop-blur-md shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 animate-popper-blast"
+            title="Click to fire right popper!"
+          >
+            <div className="hidden md:block text-right pl-1">
+              <div className="text-[11px] font-black text-amber-300 uppercase tracking-wider flex items-center justify-end space-x-1">
+                <Sparkles className="w-3 h-3 text-emerald-300" />
+                <span>Celebration</span>
+              </div>
+              <div className="text-[9px] text-slate-400">Click to pop!</div>
+            </div>
+            <div className="relative">
+              <span className="text-2xl sm:text-3xl block group-hover:-rotate-12 transition-transform">
+                🎉
+              </span>
+              <span className="absolute -top-1 -left-1 w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping" />
+            </div>
+          </div>
+        </>
+      )}
 
       {/* PHASE 1: LAUNCH BILL-SOFT */}
       {phase === 'launch' && (
@@ -195,8 +554,10 @@ export const LaunchScreen: React.FC<LaunchScreenProps> = ({ onComplete }) => {
           </div>
 
           {/* Cinematic Subtitle */}
-          <div className="text-xs sm:text-sm font-bold uppercase tracking-[0.35em] text-amber-300/90 mb-3 drop-shadow-sm font-mono">
-            ESTABLISHED QUALITY HORTICULTURE
+          <div className="text-xs sm:text-sm font-bold uppercase tracking-[0.35em] text-amber-300/90 mb-3 drop-shadow-sm font-mono flex items-center space-x-2">
+            <span>✨</span>
+            <span>ESTABLISHED QUALITY HORTICULTURE</span>
+            <span>✨</span>
           </div>
 
           {/* Giant Vijaya Nursery Animated Typography */}
@@ -242,3 +603,4 @@ export const LaunchScreen: React.FC<LaunchScreenProps> = ({ onComplete }) => {
     </div>
   );
 };
+
