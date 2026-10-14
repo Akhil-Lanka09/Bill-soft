@@ -9,6 +9,7 @@
     "start": "node dist/server.js",
     "seed": "tsx src/scripts/seed.ts",
     "seed:reset": "tsx src/scripts/seed.ts --reset",
+    "update-inventory": "tsx src/scripts/updateInventory.ts",
     "test": "vitest run",
     "test:watch": "vitest",
     "lint": "eslint src/ --ext .ts"
