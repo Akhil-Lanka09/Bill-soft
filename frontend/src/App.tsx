@@ -1,10 +1,11 @@
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy, useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { CartProvider } from './context/CartContext';
 import { Navbar } from './components/common/Navbar';
 import { Sidebar } from './components/common/Sidebar';
 import { MobileBottomNav } from './components/common/MobileBottomNav';
+import { LaunchScreen } from './components/common/LaunchScreen';
 
 // POSBilling is the primary operational page - keep ready
 import { POSBilling } from './pages/POSBilling';
@@ -73,8 +74,17 @@ const ProtectedLayout: React.FC = () => {
 };
 
 export const App: React.FC = () => {
+  const [showLaunch, setShowLaunch] = useState<boolean>(true);
+
+  useEffect(() => {
+    const handleReopen = () => setShowLaunch(true);
+    window.addEventListener('reopen-launch-screen', handleReopen);
+    return () => window.removeEventListener('reopen-launch-screen', handleReopen);
+  }, []);
+
   return (
     <AuthProvider>
+      {showLaunch && <LaunchScreen onComplete={() => setShowLaunch(false)} />}
       <BrowserRouter>
         <Suspense fallback={<RouteLoadingFallback />}>
           <Routes>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../context/AuthContext';
-import { Sprout, LogOut, Clock, ShieldCheck, User as UserIcon } from 'lucide-react';
+import { Sprout, LogOut, Clock, ShieldCheck, User as UserIcon, Rocket } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
   const { user, logout } = useAuth();
@@ -76,6 +76,15 @@ export const Navbar: React.FC = () => {
             </div>
           </div>
         )}
+
+        <button
+          onClick={() => window.dispatchEvent(new CustomEvent('reopen-launch-screen'))}
+          title="Replay Launch Screen & Intro"
+          className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-emerald-50 hover:border-emerald-200 hover:text-emerald-700 text-xs font-semibold text-slate-600 transition-colors cursor-pointer"
+        >
+          <Rocket className="w-3.5 h-3.5 text-emerald-600" />
+          <span className="hidden md:inline">Launch Intro</span>
+        </button>
 
         <button
           onClick={logout}
