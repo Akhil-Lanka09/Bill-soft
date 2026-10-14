@@ -287,10 +287,10 @@ export const LaunchScreen: React.FC<LaunchScreenProps> = ({ onComplete }) => {
         phase === 'exiting' ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}
     >
-      {/* Dynamic Ambient Background Glows in Emerald & Teal */}
-      <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-emerald-600/15 blur-[140px] pointer-events-none animate-float-orb" />
-      <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] rounded-full bg-teal-500/15 blur-[150px] pointer-events-none animate-float-orb" style={{ animationDelay: '3s' }} />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-emerald-500/10 blur-[180px] pointer-events-none" />
+      {/* Dynamic Ambient Background Glows in Pure Botanical Green */}
+      <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-emerald-600/20 blur-[140px] pointer-events-none animate-float-orb" />
+      <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] rounded-full bg-green-600/15 blur-[150px] pointer-events-none animate-float-orb" style={{ animationDelay: '3s' }} />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-emerald-600/15 blur-[180px] pointer-events-none" />
 
       {/* Subtle Tech Grid Pattern */}
       <div
@@ -411,7 +411,7 @@ export const LaunchScreen: React.FC<LaunchScreenProps> = ({ onComplete }) => {
             <div className="hidden md:block text-left pr-1">
               <div className="text-[11px] font-black text-emerald-300 uppercase tracking-wider flex items-center space-x-1">
                 <span>Party Blast</span>
-                <Sparkles className="w-3 h-3 text-teal-300" />
+                <Sparkles className="w-3 h-3 text-emerald-300" />
               </div>
               <div className="text-[9px] text-slate-400">Click to pop!</div>
             </div>
@@ -420,11 +420,11 @@ export const LaunchScreen: React.FC<LaunchScreenProps> = ({ onComplete }) => {
           {/* Right Side Popper Flank */}
           <div
             onClick={() => firePartyPoppers('right')}
-            className="absolute right-3 sm:right-6 bottom-6 sm:bottom-12 z-30 cursor-pointer group flex items-center space-x-2 bg-slate-900/80 border border-teal-500/40 hover:border-teal-400 p-2.5 sm:p-3 rounded-2xl backdrop-blur-md shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 animate-popper-blast"
+            className="absolute right-3 sm:right-6 bottom-6 sm:bottom-12 z-30 cursor-pointer group flex items-center space-x-2 bg-slate-900/80 border border-emerald-500/40 hover:border-emerald-400 p-2.5 sm:p-3 rounded-2xl backdrop-blur-md shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 animate-popper-blast"
             title="Click to fire right popper!"
           >
             <div className="hidden md:block text-right pl-1">
-              <div className="text-[11px] font-black text-teal-300 uppercase tracking-wider flex items-center justify-end space-x-1">
+              <div className="text-[11px] font-black text-emerald-300 uppercase tracking-wider flex items-center justify-end space-x-1">
                 <Sparkles className="w-3 h-3 text-emerald-300" />
                 <span>Celebration</span>
               </div>
@@ -434,7 +434,7 @@ export const LaunchScreen: React.FC<LaunchScreenProps> = ({ onComplete }) => {
               <span className="text-2xl sm:text-3xl block group-hover:-rotate-12 transition-transform">
                 🎉
               </span>
-              <span className="absolute -top-1 -left-1 w-2.5 h-2.5 rounded-full bg-teal-400 animate-ping" />
+              <span className="absolute -top-1 -left-1 w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
             </div>
           </div>
         </>
@@ -452,7 +452,7 @@ export const LaunchScreen: React.FC<LaunchScreenProps> = ({ onComplete }) => {
 
           {/* Central Logo Emblem with Official Vijaya Nursery Logo */}
           <div className="relative mb-6">
-            <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-gradient-to-tr from-emerald-600 via-teal-400 to-emerald-400 p-1 shadow-[0_0_60px_rgba(16,185,129,0.35)] flex items-center justify-center">
+            <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-gradient-to-tr from-emerald-600 via-green-500 to-emerald-400 p-1 shadow-[0_0_60px_rgba(16,185,129,0.4)] flex items-center justify-center">
               <div className="w-full h-full bg-white rounded-[22px] p-1.5 flex items-center justify-center border border-emerald-400/30 shadow-inner group">
                 <img
                   src="/vijaya-nursery-logo.jpg"
@@ -461,17 +461,17 @@ export const LaunchScreen: React.FC<LaunchScreenProps> = ({ onComplete }) => {
                 />
               </div>
             </div>
-            <div className="absolute -bottom-2 -right-2 bg-gradient-to-r from-emerald-600 to-teal-600 text-white text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full shadow-md font-mono border border-emerald-300/40">
+            <div className="absolute -bottom-2 -right-2 bg-gradient-to-r from-emerald-700 to-green-700 text-white text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full shadow-md font-mono border border-emerald-400/40">
               ESTD 1982
             </div>
           </div>
 
-          {/* System Title - Crisp White & Emerald */}
+          {/* System Title - Crisp White & Pure Botanical Green */}
           <h1 className="text-5xl sm:text-7xl font-black tracking-tight mb-3">
             <span className="bg-gradient-to-b from-white via-slate-100 to-slate-400 bg-clip-text text-transparent">
               BILL-
             </span>
-            <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-500 bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(16,185,129,0.4)]">
+            <span className="bg-gradient-to-r from-emerald-400 via-green-400 to-emerald-500 bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(16,185,129,0.5)]">
               SOFT
             </span>
           </h1>
@@ -492,28 +492,28 @@ export const LaunchScreen: React.FC<LaunchScreenProps> = ({ onComplete }) => {
             </div>
 
             <div className="bg-slate-900/60 border border-slate-800/80 hover:border-emerald-500/40 p-4 rounded-2xl backdrop-blur-md transition-all text-left group">
-              <ShieldCheck className="w-5 h-5 text-teal-400 mb-2 group-hover:scale-110 transition-transform" />
+              <ShieldCheck className="w-5 h-5 text-emerald-400 mb-2 group-hover:scale-110 transition-transform" />
               <div className="text-xs font-bold text-slate-200">INV Tax Invoicing</div>
               <div className="text-[11px] text-slate-400">Sequential & GST-compliant</div>
             </div>
 
             <div className="bg-slate-900/60 border border-slate-800/80 hover:border-emerald-500/40 p-4 rounded-2xl backdrop-blur-md transition-all text-left group">
-              <TrendingUp className="w-5 h-5 text-blue-400 mb-2 group-hover:scale-110 transition-transform" />
+              <TrendingUp className="w-5 h-5 text-emerald-400 mb-2 group-hover:scale-110 transition-transform" />
               <div className="text-xs font-bold text-slate-200">Cash & UPI QR</div>
               <div className="text-[11px] text-slate-400">Rapid counter checkout</div>
             </div>
           </div>
 
-          {/* THE MAIN LAUNCH BUTTON - Pure Radiant Emerald & Teal */}
+          {/* THE MAIN LAUNCH BUTTON - Pure Botanical Green */}
           <button
             onClick={handleLaunchClick}
             className="group relative cursor-pointer outline-hidden transition-all duration-300 hover:scale-105 active:scale-95"
           >
             {/* Outer Glow Halo */}
-            <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-600 opacity-75 blur-xl group-hover:opacity-100 group-hover:blur-2xl transition duration-500 animate-pulse" />
+            <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-emerald-500 via-green-500 to-emerald-600 opacity-75 blur-xl group-hover:opacity-100 group-hover:blur-2xl transition duration-500 animate-pulse" />
 
             {/* Button Surface */}
-            <div className="relative px-10 sm:px-14 py-4 sm:py-5 rounded-2xl bg-gradient-to-r from-emerald-500 via-emerald-600 to-teal-600 font-black text-white shadow-2xl flex items-center space-x-4 border border-emerald-300/40 overflow-hidden">
+            <div className="relative px-10 sm:px-14 py-4 sm:py-5 rounded-2xl bg-gradient-to-r from-emerald-600 via-green-600 to-emerald-600 font-black text-white shadow-2xl flex items-center space-x-4 border border-emerald-400/40 overflow-hidden">
               {/* Shimmer Sweep Effect */}
               <div className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/25 to-transparent skew-x-[-25deg] animate-shimmer-sweep pointer-events-none" />
 
@@ -532,7 +532,7 @@ export const LaunchScreen: React.FC<LaunchScreenProps> = ({ onComplete }) => {
         </div>
       )}
 
-      {/* PHASE 2: VIJAYA NURSERY CINEMATIC ANIMATION - Emerald, White & Teal */}
+      {/* PHASE 2: VIJAYA NURSERY CINEMATIC ANIMATION - Pure Lush Botanical Green */}
       {phase === 'cinematic' && (
         <div className="relative z-10 max-w-3xl w-full mx-auto px-4 py-8 flex flex-col items-center text-center animate-bloom-in select-none">
           {/* Skip Button */}
@@ -544,11 +544,11 @@ export const LaunchScreen: React.FC<LaunchScreenProps> = ({ onComplete }) => {
             <span>✕</span>
           </button>
 
-          {/* Glowing Official Vijaya Plant Nursery Logo Emblem with Emerald/Teal Halo */}
+          {/* Glowing Official Vijaya Plant Nursery Logo Emblem with Pure Green Halo */}
           <div className="relative mb-6">
             {/* Outer Rotating Gradient Halo */}
             <div
-              className="w-36 h-36 sm:w-48 sm:h-48 rounded-full bg-gradient-to-tr from-emerald-600 via-teal-400 to-emerald-300 p-1 shadow-[0_0_80px_rgba(16,185,129,0.5)] flex items-center justify-center animate-spin"
+              className="w-36 h-36 sm:w-48 sm:h-48 rounded-full bg-gradient-to-tr from-emerald-600 via-green-500 to-emerald-400 p-1 shadow-[0_0_80px_rgba(16,185,129,0.5)] flex items-center justify-center animate-spin"
               style={{ animationDuration: '24s' }}
             >
               {/* Counter-rotating inner wrapper so the logo stays perfectly upright */}
@@ -566,27 +566,24 @@ export const LaunchScreen: React.FC<LaunchScreenProps> = ({ onComplete }) => {
 
             {/* Sparkle Badges & Founded Year Tag */}
             <div className="absolute -top-1 -right-1 p-2 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 animate-pulse shadow-lg">
-              <Sparkles className="w-5 h-5 text-teal-300" />
+              <Sparkles className="w-5 h-5 text-emerald-300" />
             </div>
-            <div className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 px-3.5 py-0.5 rounded-full bg-gradient-to-r from-emerald-700 via-teal-700 to-emerald-700 text-emerald-100 text-[10px] font-black uppercase tracking-wider shadow-lg border border-emerald-400/40 whitespace-nowrap">
+            <div className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 px-3.5 py-0.5 rounded-full bg-emerald-900/90 text-emerald-200 text-[10px] font-black uppercase tracking-wider shadow-lg border border-emerald-500/40 whitespace-nowrap">
               SINCE 1982
             </div>
           </div>
 
           {/* Cinematic Subtitle */}
           <div className="text-xs sm:text-sm font-bold uppercase tracking-[0.35em] text-emerald-300/90 mb-3 drop-shadow-sm font-mono flex items-center space-x-2">
-            <span>✨</span>
+            <span>🌿</span>
             <span>ESTABLISHED QUALITY HORTICULTURE</span>
-            <span>✨</span>
+            <span>🌿</span>
           </div>
 
-          {/* Giant Vijaya Nursery Animated Typography - Emerald & Crisp White/Ice Teal */}
+          {/* Giant Vijaya Nursery Animated Typography - Pure Majestic Botanical Green */}
           <h2 className="text-4xl sm:text-7xl font-black mb-4 uppercase tracking-[0.25em] animate-text-reveal">
-            <span className="bg-gradient-to-r from-emerald-300 via-teal-100 to-emerald-400 bg-clip-text text-transparent drop-shadow-[0_0_45px_rgba(52,211,153,0.6)]">
-              VIJAYA
-            </span>{' '}
-            <span className="bg-gradient-to-r from-teal-200 via-white to-emerald-300 bg-clip-text text-transparent drop-shadow-[0_0_45px_rgba(52,211,153,0.6)]">
-              NURSERY
+            <span className="bg-gradient-to-r from-emerald-400 via-green-300 to-emerald-400 bg-clip-text text-transparent drop-shadow-[0_0_45px_rgba(52,211,153,0.7)]">
+              VIJAYA NURSERY
             </span>
           </h2>
 
@@ -598,23 +595,23 @@ export const LaunchScreen: React.FC<LaunchScreenProps> = ({ onComplete }) => {
           <div className="w-full max-w-md bg-slate-900/80 border border-slate-800 rounded-2xl p-4 backdrop-blur-md shadow-2xl">
             <div className="flex justify-between items-center text-xs font-semibold mb-2">
               <span className="text-emerald-400 flex items-center space-x-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5" />
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
                 <span>{statusMessage}</span>
               </span>
-              <span className="font-mono text-emerald-400 font-semibold">{progress}%</span>
+              <span className="font-mono text-emerald-400 font-bold">{progress}%</span>
             </div>
 
             {/* Glowing Progress Bar */}
             <div className="w-full h-2.5 bg-slate-950 rounded-full overflow-hidden border border-slate-800/80 p-0.5">
               <div
-                className="h-full rounded-full bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-400 shadow-[0_0_15px_rgba(52,211,153,0.8)] transition-all duration-100"
+                className="h-full rounded-full bg-gradient-to-r from-emerald-500 via-green-400 to-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.8)] transition-all duration-100"
                 style={{ width: `${progress}%` }}
               />
             </div>
 
             <div className="flex items-center justify-between text-[10px] text-slate-500 mt-2 font-mono">
               <span>Vissannapeta, AP</span>
-              <span>SINCE 1982</span>
+              <span className="text-emerald-400/80 font-bold">SINCE 1982</span>
               <span>INV Prefix Ready</span>
             </div>
           </div>
@@ -623,6 +620,3 @@ export const LaunchScreen: React.FC<LaunchScreenProps> = ({ onComplete }) => {
     </div>
   );
 };
-
-
-
