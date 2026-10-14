@@ -44,13 +44,13 @@ interface BalloonItem {
 }
 
 const BALLOON_PALETTES = [
-  { color: 'from-emerald-600 to-emerald-800', shine: 'rgba(167,243,208,0.7)', hex: '#059669' },
-  { color: 'from-amber-400 to-amber-600', shine: 'rgba(254,240,138,0.8)', hex: '#d97706' },
-  { color: 'from-lime-400 to-emerald-600', shine: 'rgba(217,249,157,0.8)', hex: '#65a30d' },
-  { color: 'from-yellow-400 to-amber-500', shine: 'rgba(254,249,195,0.8)', hex: '#eab308' },
-  { color: 'from-emerald-500 to-teal-700', shine: 'rgba(204,251,241,0.7)', hex: '#0d9488' },
-  { color: 'from-orange-500 to-amber-700', shine: 'rgba(254,215,170,0.7)', hex: '#c2410c' },
-  { color: 'from-green-500 to-emerald-700', shine: 'rgba(187,247,208,0.7)', hex: '#16a34a' },
+  { color: 'from-emerald-500 to-emerald-700', shine: 'rgba(167,243,208,0.7)', hex: '#10b981' },
+  { color: 'from-teal-400 to-emerald-600', shine: 'rgba(204,251,241,0.8)', hex: '#14b8a6' },
+  { color: 'from-cyan-400 to-blue-600', shine: 'rgba(207,250,254,0.8)', hex: '#06b6d4' },
+  { color: 'from-emerald-400 to-teal-600', shine: 'rgba(167,243,208,0.8)', hex: '#34d399' },
+  { color: 'from-purple-500 to-indigo-700', shine: 'rgba(233,213,255,0.7)', hex: '#8b5cf6' },
+  { color: 'from-rose-500 to-pink-600', shine: 'rgba(254,205,211,0.7)', hex: '#f43f5e' },
+  { color: 'from-teal-500 to-teal-800', shine: 'rgba(204,251,241,0.7)', hex: '#0f766e' },
 ];
 
 export const LaunchScreen: React.FC<LaunchScreenProps> = ({ onComplete }) => {
@@ -106,14 +106,14 @@ export const LaunchScreen: React.FC<LaunchScreenProps> = ({ onComplete }) => {
     setBalloons(sideBalloons);
   }, [phase]);
 
-  // Burst Party Poppers from the sides - colors matched with logo greens & warm golds
+  // Burst Party Poppers from the sides - emerald, teal, cyan, gold & white sparkles
   const firePartyPoppers = (source: 'both' | 'left' | 'right' = 'both') => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
     const width = canvas.width;
     const height = canvas.height;
-    const colors = ['#059669', '#10b981', '#34d399', '#65a30d', '#f59e0b', '#fbbf24', '#d97706', '#92400e', '#ffffff'];
+    const colors = ['#10b981', '#34d399', '#06b6d4', '#38bdf8', '#8b5cf6', '#ec4899', '#fbbf24', '#ffffff'];
 
     const createBurst = (originX: number, originY: number, angleDeg: number, spreadDeg: number, count = 80) => {
       for (let i = 0; i < count; i++) {
@@ -287,10 +287,10 @@ export const LaunchScreen: React.FC<LaunchScreenProps> = ({ onComplete }) => {
         phase === 'exiting' ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}
     >
-      {/* Dynamic Ambient Background Glows tailored to Forest Green & Warm Amber */}
-      <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-emerald-700/20 blur-[140px] pointer-events-none animate-float-orb" />
-      <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] rounded-full bg-amber-600/15 blur-[150px] pointer-events-none animate-float-orb" style={{ animationDelay: '3s' }} />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-emerald-600/10 blur-[180px] pointer-events-none" />
+      {/* Dynamic Ambient Background Glows in Emerald & Teal */}
+      <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-emerald-600/15 blur-[140px] pointer-events-none animate-float-orb" />
+      <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] rounded-full bg-teal-500/15 blur-[150px] pointer-events-none animate-float-orb" style={{ animationDelay: '3s' }} />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-emerald-500/10 blur-[180px] pointer-events-none" />
 
       {/* Subtle Tech Grid Pattern */}
       <div
@@ -369,7 +369,7 @@ export const LaunchScreen: React.FC<LaunchScreenProps> = ({ onComplete }) => {
                   <div
                     className="w-2.5 h-1.5 -mt-0.5 rounded-b-sm bg-inherit opacity-90"
                     style={{
-                      backgroundColor: b.shineColor ? undefined : '#10b981',
+                      backgroundColor: '#10b981',
                     }}
                   />
 
@@ -411,7 +411,7 @@ export const LaunchScreen: React.FC<LaunchScreenProps> = ({ onComplete }) => {
             <div className="hidden md:block text-left pr-1">
               <div className="text-[11px] font-black text-emerald-300 uppercase tracking-wider flex items-center space-x-1">
                 <span>Party Blast</span>
-                <Sparkles className="w-3 h-3 text-amber-300" />
+                <Sparkles className="w-3 h-3 text-teal-300" />
               </div>
               <div className="text-[9px] text-slate-400">Click to pop!</div>
             </div>
@@ -420,11 +420,11 @@ export const LaunchScreen: React.FC<LaunchScreenProps> = ({ onComplete }) => {
           {/* Right Side Popper Flank */}
           <div
             onClick={() => firePartyPoppers('right')}
-            className="absolute right-3 sm:right-6 bottom-6 sm:bottom-12 z-30 cursor-pointer group flex items-center space-x-2 bg-slate-900/80 border border-amber-500/40 hover:border-amber-400 p-2.5 sm:p-3 rounded-2xl backdrop-blur-md shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 animate-popper-blast"
+            className="absolute right-3 sm:right-6 bottom-6 sm:bottom-12 z-30 cursor-pointer group flex items-center space-x-2 bg-slate-900/80 border border-teal-500/40 hover:border-teal-400 p-2.5 sm:p-3 rounded-2xl backdrop-blur-md shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 animate-popper-blast"
             title="Click to fire right popper!"
           >
             <div className="hidden md:block text-right pl-1">
-              <div className="text-[11px] font-black text-amber-300 uppercase tracking-wider flex items-center justify-end space-x-1">
+              <div className="text-[11px] font-black text-teal-300 uppercase tracking-wider flex items-center justify-end space-x-1">
                 <Sparkles className="w-3 h-3 text-emerald-300" />
                 <span>Celebration</span>
               </div>
@@ -434,7 +434,7 @@ export const LaunchScreen: React.FC<LaunchScreenProps> = ({ onComplete }) => {
               <span className="text-2xl sm:text-3xl block group-hover:-rotate-12 transition-transform">
                 🎉
               </span>
-              <span className="absolute -top-1 -left-1 w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping" />
+              <span className="absolute -top-1 -left-1 w-2.5 h-2.5 rounded-full bg-teal-400 animate-ping" />
             </div>
           </div>
         </>
@@ -444,15 +444,15 @@ export const LaunchScreen: React.FC<LaunchScreenProps> = ({ onComplete }) => {
       {phase === 'launch' && (
         <div className="relative z-10 max-w-4xl w-full mx-auto px-4 py-8 flex flex-col items-center text-center animate-bloom-in select-none">
           {/* Top Status Pill */}
-          <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-emerald-950/80 border border-emerald-500/30 text-emerald-300 text-xs font-semibold backdrop-blur-md mb-6 shadow-lg shadow-emerald-950/50">
+          <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-emerald-950/80 border border-emerald-500/30 text-emerald-300 text-xs font-semibold backdrop-blur-md mb-8 shadow-lg shadow-emerald-950/50">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping inline-block" />
             <span className="w-2 h-2 rounded-full bg-emerald-400 inline-block -ml-3" />
             <span>ENTERPRISE POS • VIJAYA PLANT NURSERY • SINCE 1982</span>
           </div>
 
           {/* Central Logo Emblem with Official Vijaya Nursery Logo */}
-          <div className="relative mb-5">
-            <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-gradient-to-tr from-emerald-600 via-lime-400 to-amber-500 p-1 shadow-[0_0_60px_rgba(16,185,129,0.4)] flex items-center justify-center">
+          <div className="relative mb-6">
+            <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-gradient-to-tr from-emerald-600 via-teal-400 to-emerald-400 p-1 shadow-[0_0_60px_rgba(16,185,129,0.35)] flex items-center justify-center">
               <div className="w-full h-full bg-white rounded-[22px] p-1.5 flex items-center justify-center border border-emerald-400/30 shadow-inner group">
                 <img
                   src="/vijaya-nursery-logo.jpg"
@@ -461,59 +461,59 @@ export const LaunchScreen: React.FC<LaunchScreenProps> = ({ onComplete }) => {
                 />
               </div>
             </div>
-            <div className="absolute -bottom-2 -right-2 bg-gradient-to-r from-amber-500 to-amber-600 text-white text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full shadow-md font-mono border border-amber-300/40">
+            <div className="absolute -bottom-2 -right-2 bg-gradient-to-r from-emerald-600 to-teal-600 text-white text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full shadow-md font-mono border border-emerald-300/40">
               ESTD 1982
             </div>
           </div>
 
-          {/* System Title */}
-          <h1 className="text-5xl sm:text-7xl font-black tracking-tight mb-2">
+          {/* System Title - Crisp White & Emerald */}
+          <h1 className="text-5xl sm:text-7xl font-black tracking-tight mb-3">
             <span className="bg-gradient-to-b from-white via-slate-100 to-slate-400 bg-clip-text text-transparent">
               BILL-
             </span>
-            <span className="bg-gradient-to-r from-emerald-400 via-green-300 to-amber-400 bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(16,185,129,0.4)]">
+            <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-500 bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(16,185,129,0.4)]">
               SOFT
             </span>
           </h1>
 
-          <p className="text-base sm:text-xl font-medium text-emerald-200/90 max-w-xl mx-auto mb-1">
-            Vijaya Plant Nursery POS & Counter Billing Suite
+          <p className="text-base sm:text-xl font-medium text-emerald-200/90 max-w-xl mx-auto mb-2">
+            Professional Nursery POS & Retail Billing Management System
           </p>
-          <p className="text-xs sm:text-sm text-slate-400 max-w-lg mx-auto mb-8 leading-relaxed">
+          <p className="text-xs sm:text-sm text-slate-400 max-w-lg mx-auto mb-10 leading-relaxed">
             Instant counter billing, botanical variety tracking, automated inventory deduction, and GST-ready invoices.
           </p>
 
           {/* Feature Badges Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 max-w-2xl w-full mb-10">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 max-w-2xl w-full mb-12">
             <div className="bg-slate-900/60 border border-slate-800/80 hover:border-emerald-500/40 p-4 rounded-2xl backdrop-blur-md transition-all text-left group">
               <Boxes className="w-5 h-5 text-emerald-400 mb-2 group-hover:scale-110 transition-transform" />
               <div className="text-xs font-bold text-slate-200">86 Plant Varieties</div>
               <div className="text-[11px] text-slate-400">Synced live with stock audit</div>
             </div>
 
-            <div className="bg-slate-900/60 border border-slate-800/80 hover:border-amber-500/40 p-4 rounded-2xl backdrop-blur-md transition-all text-left group">
-              <ShieldCheck className="w-5 h-5 text-amber-400 mb-2 group-hover:scale-110 transition-transform" />
+            <div className="bg-slate-900/60 border border-slate-800/80 hover:border-emerald-500/40 p-4 rounded-2xl backdrop-blur-md transition-all text-left group">
+              <ShieldCheck className="w-5 h-5 text-teal-400 mb-2 group-hover:scale-110 transition-transform" />
               <div className="text-xs font-bold text-slate-200">INV Tax Invoicing</div>
               <div className="text-[11px] text-slate-400">Sequential & GST-compliant</div>
             </div>
 
             <div className="bg-slate-900/60 border border-slate-800/80 hover:border-emerald-500/40 p-4 rounded-2xl backdrop-blur-md transition-all text-left group">
-              <TrendingUp className="w-5 h-5 text-green-400 mb-2 group-hover:scale-110 transition-transform" />
+              <TrendingUp className="w-5 h-5 text-blue-400 mb-2 group-hover:scale-110 transition-transform" />
               <div className="text-xs font-bold text-slate-200">Cash & UPI QR</div>
               <div className="text-[11px] text-slate-400">Rapid counter checkout</div>
             </div>
           </div>
 
-          {/* THE MAIN LAUNCH BUTTON */}
+          {/* THE MAIN LAUNCH BUTTON - Pure Radiant Emerald & Teal */}
           <button
             onClick={handleLaunchClick}
             className="group relative cursor-pointer outline-hidden transition-all duration-300 hover:scale-105 active:scale-95"
           >
             {/* Outer Glow Halo */}
-            <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-emerald-500 via-lime-400 to-amber-500 opacity-75 blur-xl group-hover:opacity-100 group-hover:blur-2xl transition duration-500 animate-pulse" />
+            <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-600 opacity-75 blur-xl group-hover:opacity-100 group-hover:blur-2xl transition duration-500 animate-pulse" />
 
             {/* Button Surface */}
-            <div className="relative px-10 sm:px-14 py-4 sm:py-5 rounded-2xl bg-gradient-to-r from-emerald-600 via-green-600 to-amber-600 font-black text-white shadow-2xl flex items-center space-x-4 border border-emerald-300/40 overflow-hidden">
+            <div className="relative px-10 sm:px-14 py-4 sm:py-5 rounded-2xl bg-gradient-to-r from-emerald-500 via-emerald-600 to-teal-600 font-black text-white shadow-2xl flex items-center space-x-4 border border-emerald-300/40 overflow-hidden">
               {/* Shimmer Sweep Effect */}
               <div className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/25 to-transparent skew-x-[-25deg] animate-shimmer-sweep pointer-events-none" />
 
@@ -532,7 +532,7 @@ export const LaunchScreen: React.FC<LaunchScreenProps> = ({ onComplete }) => {
         </div>
       )}
 
-      {/* PHASE 2: VIJAYA NURSERY CINEMATIC ANIMATION */}
+      {/* PHASE 2: VIJAYA NURSERY CINEMATIC ANIMATION - Emerald, White & Teal */}
       {phase === 'cinematic' && (
         <div className="relative z-10 max-w-3xl w-full mx-auto px-4 py-8 flex flex-col items-center text-center animate-bloom-in select-none">
           {/* Skip Button */}
@@ -544,11 +544,11 @@ export const LaunchScreen: React.FC<LaunchScreenProps> = ({ onComplete }) => {
             <span>✕</span>
           </button>
 
-          {/* Glowing Official Vijaya Plant Nursery Logo Emblem */}
-          <div className="relative mb-5">
+          {/* Glowing Official Vijaya Plant Nursery Logo Emblem with Emerald/Teal Halo */}
+          <div className="relative mb-6">
             {/* Outer Rotating Gradient Halo */}
             <div
-              className="w-40 h-40 sm:w-52 sm:h-52 rounded-full bg-gradient-to-tr from-emerald-600 via-lime-400 to-amber-500 p-1.5 shadow-[0_0_90px_rgba(16,185,129,0.55),0_0_40px_rgba(245,158,11,0.35)] flex items-center justify-center animate-spin"
+              className="w-36 h-36 sm:w-48 sm:h-48 rounded-full bg-gradient-to-tr from-emerald-600 via-teal-400 to-emerald-300 p-1 shadow-[0_0_80px_rgba(16,185,129,0.5)] flex items-center justify-center animate-spin"
               style={{ animationDuration: '24s' }}
             >
               {/* Counter-rotating inner wrapper so the logo stays perfectly upright */}
@@ -565,57 +565,57 @@ export const LaunchScreen: React.FC<LaunchScreenProps> = ({ onComplete }) => {
             </div>
 
             {/* Sparkle Badges & Founded Year Tag */}
-            <div className="absolute -top-1 -right-1 p-2 rounded-full bg-emerald-500/30 border border-emerald-400 text-emerald-300 animate-pulse shadow-lg">
-              <Sparkles className="w-5 h-5 text-amber-300" />
+            <div className="absolute -top-1 -right-1 p-2 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 animate-pulse shadow-lg">
+              <Sparkles className="w-5 h-5 text-teal-300" />
             </div>
-            <div className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 px-4 py-0.5 rounded-full bg-gradient-to-r from-emerald-700 via-amber-600 to-emerald-700 text-white text-[11px] font-black uppercase tracking-wider shadow-lg border border-amber-300/50 whitespace-nowrap">
+            <div className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 px-3.5 py-0.5 rounded-full bg-gradient-to-r from-emerald-700 via-teal-700 to-emerald-700 text-emerald-100 text-[10px] font-black uppercase tracking-wider shadow-lg border border-emerald-400/40 whitespace-nowrap">
               SINCE 1982
             </div>
           </div>
 
-          {/* Cinematic Subtitle matching Logo */}
-          <div className="text-xs sm:text-sm font-bold uppercase tracking-[0.3em] text-amber-300 mb-2 drop-shadow-sm font-mono flex items-center space-x-2">
-            <span>🌿</span>
-            <span>PREMIUM BOTANICAL HORTICULTURE</span>
-            <span>🌿</span>
+          {/* Cinematic Subtitle */}
+          <div className="text-xs sm:text-sm font-bold uppercase tracking-[0.35em] text-emerald-300/90 mb-3 drop-shadow-sm font-mono flex items-center space-x-2">
+            <span>✨</span>
+            <span>ESTABLISHED QUALITY HORTICULTURE</span>
+            <span>✨</span>
           </div>
 
-          {/* Giant Vijaya Plant Nursery Animated Typography */}
-          <h2 className="text-3xl sm:text-6xl font-black mb-2 uppercase tracking-[0.2em] animate-text-reveal">
-            <span className="bg-gradient-to-r from-emerald-400 via-green-300 to-emerald-500 bg-clip-text text-transparent drop-shadow-[0_0_40px_rgba(52,211,153,0.6)]">
+          {/* Giant Vijaya Nursery Animated Typography - Emerald & Crisp White/Ice Teal */}
+          <h2 className="text-4xl sm:text-7xl font-black mb-4 uppercase tracking-[0.25em] animate-text-reveal">
+            <span className="bg-gradient-to-r from-emerald-300 via-teal-100 to-emerald-400 bg-clip-text text-transparent drop-shadow-[0_0_45px_rgba(52,211,153,0.6)]">
               VIJAYA
             </span>{' '}
-            <span className="bg-gradient-to-r from-amber-400 via-amber-200 to-yellow-500 bg-clip-text text-transparent drop-shadow-[0_0_40px_rgba(245,158,11,0.5)]">
-              PLANT NURSERY
+            <span className="bg-gradient-to-r from-teal-200 via-white to-emerald-300 bg-clip-text text-transparent drop-shadow-[0_0_45px_rgba(52,211,153,0.6)]">
+              NURSERY
             </span>
           </h2>
 
-          <p className="text-xs sm:text-base text-emerald-100/90 font-medium max-w-lg mx-auto mb-6 leading-relaxed italic">
-            “Four Decades of Trust • Healthy Fruit Varieties, Timber Plants & Exotic Greens.”
+          <p className="text-sm sm:text-lg text-slate-300 font-medium max-w-lg mx-auto mb-10 leading-relaxed italic">
+            “Nurturing nature, delivering healthy fruit varieties, timber plants & exotic greens.”
           </p>
 
           {/* System Initialization Progress */}
-          <div className="w-full max-w-md bg-slate-900/85 border border-emerald-900/60 rounded-2xl p-4 backdrop-blur-md shadow-2xl">
+          <div className="w-full max-w-md bg-slate-900/80 border border-slate-800 rounded-2xl p-4 backdrop-blur-md shadow-2xl">
             <div className="flex justify-between items-center text-xs font-semibold mb-2">
               <span className="text-emerald-400 flex items-center space-x-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-amber-400" />
+                <CheckCircle2 className="w-3.5 h-3.5" />
                 <span>{statusMessage}</span>
               </span>
-              <span className="font-mono text-amber-400 font-bold">{progress}%</span>
+              <span className="font-mono text-emerald-400 font-semibold">{progress}%</span>
             </div>
 
             {/* Glowing Progress Bar */}
             <div className="w-full h-2.5 bg-slate-950 rounded-full overflow-hidden border border-slate-800/80 p-0.5">
               <div
-                className="h-full rounded-full bg-gradient-to-r from-emerald-500 via-lime-400 to-amber-400 shadow-[0_0_15px_rgba(16,185,129,0.8)] transition-all duration-100"
+                className="h-full rounded-full bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-400 shadow-[0_0_15px_rgba(52,211,153,0.8)] transition-all duration-100"
                 style={{ width: `${progress}%` }}
               />
             </div>
 
-            <div className="flex items-center justify-between text-[10px] text-slate-400 mt-2 font-mono">
+            <div className="flex items-center justify-between text-[10px] text-slate-500 mt-2 font-mono">
               <span>Vissannapeta, AP</span>
-              <span className="text-amber-400/80">SINCE 1982</span>
-              <span>INV Billing Ready</span>
+              <span>SINCE 1982</span>
+              <span>INV Prefix Ready</span>
             </div>
           </div>
         </div>
@@ -623,5 +623,6 @@ export const LaunchScreen: React.FC<LaunchScreenProps> = ({ onComplete }) => {
     </div>
   );
 };
+
 
 
