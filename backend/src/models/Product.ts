@@ -64,7 +64,7 @@ const productVariantSchema = new Schema<IProductVariant>({
   costPrice: { type: Number },
   minimumSellingPrice: { type: Number },
   currentStock: { type: Number, default: 0 },
-  lowStockThreshold: { type: Number, default: 15 },
+  lowStockThreshold: { type: Number, default: 10 },
   hsn: { type: String, trim: true },
   gstRate: { type: Number, default: 0 },
   isActive: { type: Boolean, default: true },
@@ -162,7 +162,7 @@ const productSchema = new Schema<IProduct>(
     },
     lowStockThreshold: {
       type: Number,
-      default: 15,
+      default: 10,
     },
     images: [{
       type: String,

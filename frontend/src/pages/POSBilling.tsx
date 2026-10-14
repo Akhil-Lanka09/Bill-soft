@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   Search,
   Plus,
@@ -65,7 +65,7 @@ export const POSBilling: React.FC = () => {
 
   // Payment Drawer state
   const [showPaymentDrawer, setShowPaymentDrawer] = useState<boolean>(false);
-  const [activePaymentMethod, setActivePaymentMethod] = useState<'cash' | 'upi' | 'card' | 'credit'>('cash');
+  const [activePaymentMethod, setActivePaymentMethod] = useState<'cash' | 'upi'>('cash');
   const [cashTendered, setCashTendered] = useState<string>('');
   const [upiQrDataUrl, setUpiQrDataUrl] = useState<string>('');
   const [paymentReference, setPaymentReference] = useState<string>('');
@@ -139,11 +139,19 @@ export const POSBilling: React.FC = () => {
     }
   }, [activePaymentMethod, summary?.grandTotal]);
 
+  // Compute count of low stock items (< 10)
+  const lowStockCount = useMemo(() => {
+    return products.filter((p) => p.currentStock < (p.lowStockThreshold || 10)).length;
+  }, [products]);
+
   // Filter products by category and search
   const filteredProducts = products.filter((p) => {
     const matchesCat =
-      selectedCategory === 'all' ||
-      (typeof p.category === 'object' ? p.category._id === selectedCategory : p.category === selectedCategory);
+      selectedCategory === 'all'
+        ? true
+        : selectedCategory === 'low_stock'
+        ? p.currentStock < (p.lowStockThreshold || 10)
+        : (typeof p.category === 'object' ? p.category._id === selectedCategory : p.category === selectedCategory);
 
     const q = searchQuery.toLowerCase().trim();
     if (!q) return matchesCat;
@@ -304,6 +312,17 @@ export const POSBilling: React.FC = () => {
             >
               All Plants & Items
             </button>
+            <button
+              onClick={() => setSelectedCategory('low_stock')}
+              className={`px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all cursor-pointer flex items-center space-x-1.5 ${
+                selectedCategory === 'low_stock'
+                  ? 'bg-amber-600 text-white shadow-xs ring-2 ring-amber-300'
+                  : 'bg-amber-50 text-amber-700 hover:bg-amber-100 border border-amber-200'
+              }`}
+            >
+              <AlertTriangle className="w-3.5 h-3.5 text-amber-500" />
+              <span>Low Stock &lt; 10 ({lowStockCount})</span>
+            </button>
             {categories.map((c) => (
               <button
                 key={c._id}
@@ -331,10 +350,13 @@ export const POSBilling: React.FC = () => {
               <ShoppingBag className="w-12 h-12 stroke-1 mb-2 text-slate-300" />
               <p className="text-sm font-medium">No plants found matching query</p>
               <button
-                onClick={() => setSearchQuery('')}
+                onClick={() => {
+                  setSearchQuery('');
+                  setSelectedCategory('all');
+                }}
                 className="mt-2 text-xs text-emerald-600 hover:underline"
               >
-                Clear search filter
+                Clear filters
               </button>
             </div>
           ) : (
@@ -342,7 +364,7 @@ export const POSBilling: React.FC = () => {
               {filteredProducts.map((product) => {
                 const isOutOfStock = product.currentStock <= 0;
                 const isLowStock =
-                  product.currentStock > 0 && product.currentStock < (product.lowStockThreshold || 15);
+                  product.currentStock > 0 && product.currentStock < (product.lowStockThreshold || 10);
 
                 return (
                   <div
@@ -504,55 +526,31 @@ export const POSBilling: React.FC = () => {
               {/* Payment Methods */}
               <div>
                 <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
-                  Select Payment Method
+                  Select Payment Method (Cash or UPI Only)
                 </label>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                <div className="grid grid-cols-2 gap-3">
                   <button
                     onClick={() => setActivePaymentMethod('cash')}
-                    className={`p-3 rounded-2xl border text-center transition-all cursor-pointer ${
+                    className={`p-3.5 rounded-2xl border text-center transition-all cursor-pointer flex flex-col items-center justify-center space-y-1.5 ${
                       activePaymentMethod === 'cash'
-                        ? 'border-emerald-500 bg-emerald-50 text-emerald-800 font-bold shadow-xs'
+                        ? 'border-emerald-500 bg-emerald-50 text-emerald-800 font-bold shadow-xs ring-2 ring-emerald-400'
                         : 'border-slate-200 text-slate-600 hover:bg-slate-50'
                     }`}
                   >
-                    <Banknote className="w-5 h-5 mx-auto mb-1 text-emerald-600" />
-                    <span className="text-xs">Cash</span>
+                    <Banknote className="w-6 h-6 text-emerald-600" />
+                    <span className="text-xs font-bold">💵 Cash</span>
                   </button>
 
                   <button
                     onClick={() => setActivePaymentMethod('upi')}
-                    className={`p-3 rounded-2xl border text-center transition-all cursor-pointer ${
+                    className={`p-3.5 rounded-2xl border text-center transition-all cursor-pointer flex flex-col items-center justify-center space-y-1.5 ${
                       activePaymentMethod === 'upi'
-                        ? 'border-emerald-500 bg-emerald-50 text-emerald-800 font-bold shadow-xs'
+                        ? 'border-emerald-500 bg-emerald-50 text-emerald-800 font-bold shadow-xs ring-2 ring-emerald-400'
                         : 'border-slate-200 text-slate-600 hover:bg-slate-50'
                     }`}
                   >
-                    <QrCode className="w-5 h-5 mx-auto mb-1 text-blue-600" />
-                    <span className="text-xs">UPI QR</span>
-                  </button>
-
-                  <button
-                    onClick={() => setActivePaymentMethod('card')}
-                    className={`p-3 rounded-2xl border text-center transition-all cursor-pointer ${
-                      activePaymentMethod === 'card'
-                        ? 'border-emerald-500 bg-emerald-50 text-emerald-800 font-bold shadow-xs'
-                        : 'border-slate-200 text-slate-600 hover:bg-slate-50'
-                    }`}
-                  >
-                    <CreditCard className="w-5 h-5 mx-auto mb-1 text-purple-600" />
-                    <span className="text-xs">Card / POS</span>
-                  </button>
-
-                  <button
-                    onClick={() => setActivePaymentMethod('credit')}
-                    className={`p-3 rounded-2xl border text-center transition-all cursor-pointer ${
-                      activePaymentMethod === 'credit'
-                        ? 'border-emerald-500 bg-emerald-50 text-emerald-800 font-bold shadow-xs'
-                        : 'border-slate-200 text-slate-600 hover:bg-slate-50'
-                    }`}
-                  >
-                    <Receipt className="w-5 h-5 mx-auto mb-1 text-amber-600" />
-                    <span className="text-xs">Credit / Due</span>
+                    <QrCode className="w-6 h-6 text-blue-600" />
+                    <span className="text-xs font-bold">📱 UPI QR</span>
                   </button>
                 </div>
               </div>
@@ -599,16 +597,9 @@ export const POSBilling: React.FC = () => {
                 </div>
               )}
 
-              {activePaymentMethod === 'credit' && !customer && (
-                <div className="p-3 bg-amber-50 border border-amber-200 rounded-xl text-amber-800 text-xs flex items-center space-x-2">
-                  <AlertTriangle className="w-5 h-5 shrink-0" />
-                  <span>Credit billing requires attaching a customer account to keep running ledger balances.</span>
-                </div>
-              )}
-
               <button
                 onClick={handleCheckout}
-                disabled={isCheckingOut || (activePaymentMethod === 'credit' && !customer)}
+                disabled={isCheckingOut}
                 className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 rounded-xl text-sm transition-all shadow-md flex items-center justify-center space-x-2 cursor-pointer disabled:opacity-50"
               >
                 <Check className="w-4 h-4" />

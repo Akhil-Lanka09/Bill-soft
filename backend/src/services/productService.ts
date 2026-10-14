@@ -90,10 +90,10 @@ export class ProductService {
     if (stockStatus) {
       switch (stockStatus) {
         case 'in_stock':
-          query.$expr = { $gte: ['$currentStock', { $ifNull: ['$lowStockThreshold', 15] }] };
+          query.$expr = { $gte: ['$currentStock', { $ifNull: ['$lowStockThreshold', 10] }] };
           break;
         case 'low_stock':
-          query.$expr = { $and: [{ $gt: ['$currentStock', 0] }, { $lt: ['$currentStock', { $ifNull: ['$lowStockThreshold', 15] }] }] };
+          query.$expr = { $and: [{ $gt: ['$currentStock', 0] }, { $lt: ['$currentStock', { $ifNull: ['$lowStockThreshold', 10] }] }] };
           break;
         case 'out_of_stock':
           query.currentStock = 0;
@@ -422,7 +422,7 @@ export class ProductService {
       Product.countDocuments({
         isActive: true,
         isArchived: false,
-        $expr: { $and: [{ $gt: ['$currentStock', 0] }, { $lt: ['$currentStock', { $ifNull: ['$lowStockThreshold', 15] }] }] },
+        $expr: { $and: [{ $gt: ['$currentStock', 0] }, { $lt: ['$currentStock', { $ifNull: ['$lowStockThreshold', 10] }] }] },
       }),
       Product.countDocuments({ isActive: true, isArchived: false, currentStock: { $lt: 0 } }),
       Product.countDocuments({ needsReconciliation: true }),

@@ -284,12 +284,12 @@ export const Settings: React.FC = () => {
                 <label className="block font-semibold text-slate-700 mb-1">Low Stock Threshold</label>
                 <input
                   type="number"
-                  value={settings?.defaultLowStockThreshold ?? 15}
+                  value={settings?.defaultLowStockThreshold ?? 10}
                   onChange={(e) =>
-                    setSettings({ ...settings, defaultLowStockThreshold: parseInt(e.target.value) || 15 })
+                    setSettings({ ...settings, defaultLowStockThreshold: parseInt(e.target.value) || 10 })
                   }
                   className="w-full py-2 px-3 border border-slate-300 rounded-xl font-mono"
-                  placeholder="15"
+                  placeholder="10"
                 />
               </div>
             </div>

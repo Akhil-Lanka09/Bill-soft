@@ -54,7 +54,7 @@ export const Products: React.FC = () => {
     costPrice: 0,
     sellingPrice: 0,
     openingStock: 0,
-    lowStockThreshold: 15,
+    lowStockThreshold: 10,
     location: '',
   });
 
@@ -149,7 +149,7 @@ export const Products: React.FC = () => {
           costPrice: 0,
           sellingPrice: 0,
           openingStock: 0,
-          lowStockThreshold: 15,
+          lowStockThreshold: 10,
           location: '',
         });
         loadData();
@@ -199,15 +199,23 @@ export const Products: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-white p-3.5 sm:p-4 rounded-2xl border border-amber-200 bg-amber-50/20 shadow-xs">
-            <div className="text-[11px] font-bold text-amber-700 uppercase tracking-wider">
-              Low Stock Alert
+          <div
+            onClick={() => setStockStatusFilter('low_stock')}
+            className={`bg-white p-3.5 sm:p-4 rounded-2xl border transition-all cursor-pointer shadow-xs ${
+              stockStatusFilter === 'low_stock'
+                ? 'border-amber-500 bg-amber-50/60 ring-2 ring-amber-300'
+                : 'border-amber-200 bg-amber-50/20 hover:border-amber-400 hover:shadow-md'
+            }`}
+          >
+            <div className="text-[11px] font-bold text-amber-700 uppercase tracking-wider flex items-center justify-between">
+              <span>Low Stock Alert (&lt; 10)</span>
+              <span className="text-[10px] text-amber-600 font-semibold underline">View List →</span>
             </div>
             <div className="text-xl sm:text-2xl font-black text-amber-800 mt-1 font-mono">
               {summary.lowStock}
             </div>
             <div className="text-[11px] text-amber-700 font-medium mt-1">
-              Below threshold reorder
+              Plants below 10 units in stock
             </div>
           </div>
 
@@ -267,7 +275,7 @@ export const Products: React.FC = () => {
           >
             <option value="">All Stock Status</option>
             <option value="in_stock">In Stock</option>
-            <option value="low_stock">Low Stock</option>
+            <option value="low_stock">⚠️ Low Stock (&lt; 10)</option>
             <option value="out_of_stock">Out of Stock</option>
           </select>
         </div>
@@ -305,7 +313,7 @@ export const Products: React.FC = () => {
                 products.map((p) => {
                   const isOutOfStock = p.currentStock <= 0;
                   const isLowStock =
-                    p.currentStock > 0 && p.currentStock < (p.lowStockThreshold || 15);
+                    p.currentStock > 0 && p.currentStock < (p.lowStockThreshold || 10);
 
                   return (
                     <tr key={p._id} className="hover:bg-slate-50/70 transition-colors">

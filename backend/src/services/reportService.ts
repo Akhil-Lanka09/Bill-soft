@@ -29,7 +29,7 @@ export class ReportService {
       Product.countDocuments({
         isActive: true,
         isArchived: false,
-        $expr: { $and: [{ $gt: ['$currentStock', 0] }, { $lt: ['$currentStock', { $ifNull: ['$lowStockThreshold', 15] }] }] },
+        $expr: { $and: [{ $gt: ['$currentStock', 0] }, { $lt: ['$currentStock', { $ifNull: ['$lowStockThreshold', 10] }] }] },
       }),
       Product.countDocuments({ isActive: true, isArchived: false, currentStock: { $lte: 0 } }),
       Customer.countDocuments({ isActive: true }),

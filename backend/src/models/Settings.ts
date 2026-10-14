@@ -93,7 +93,7 @@ const settingsSchema = new Schema<ISettings>(
     },
     defaultLowStockThreshold: {
       type: Number,
-      default: 15,
+      default: 10,
     },
     maxAgentDiscountPercent: {
       type: Number,
@@ -143,7 +143,7 @@ const settingsSchema = new Schema<ISettings>(
     },
     enabledPaymentMethods: {
       type: [String],
-      default: ['cash', 'upi', 'card', 'bank_transfer', 'credit'],
+      default: ['cash', 'upi'],
     },
     thermalPrinterWidth: {
       type: Number,

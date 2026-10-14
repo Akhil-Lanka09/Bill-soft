@@ -14,7 +14,7 @@
     "sellingPrice": 250.0,
     "currentStock": 100,
     "openingStock": 100,
-    "lowStockThreshold": 15,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -33,7 +33,7 @@
     "sellingPrice": 280.0,
     "currentStock": 300,
     "openingStock": 300,
-    "lowStockThreshold": 45,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -52,7 +52,7 @@
     "sellingPrice": 120.0,
     "currentStock": 600,
     "openingStock": 600,
-    "lowStockThreshold": 90,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -71,7 +71,7 @@
     "sellingPrice": 280.0,
     "currentStock": 300,
     "openingStock": 300,
-    "lowStockThreshold": 45,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -90,7 +90,7 @@
     "sellingPrice": 280.0,
     "currentStock": 5,
     "openingStock": 5,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -109,7 +109,7 @@
     "sellingPrice": 280.0,
     "currentStock": 5,
     "openingStock": 5,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -128,7 +128,7 @@
     "sellingPrice": 120.0,
     "currentStock": 50,
     "openingStock": 50,
-    "lowStockThreshold": 8,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -147,7 +147,7 @@
     "sellingPrice": 250.0,
     "currentStock": 25,
     "openingStock": 25,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -166,7 +166,7 @@
     "sellingPrice": 250.0,
     "currentStock": 50,
     "openingStock": 50,
-    "lowStockThreshold": 8,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -185,7 +185,7 @@
     "sellingPrice": 100.0,
     "currentStock": 1000,
     "openingStock": 1000,
-    "lowStockThreshold": 150,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -204,7 +204,7 @@
     "sellingPrice": 120.0,
     "currentStock": 50,
     "openingStock": 50,
-    "lowStockThreshold": 8,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -223,7 +223,7 @@
     "sellingPrice": 110.0,
     "currentStock": 50,
     "openingStock": 50,
-    "lowStockThreshold": 8,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -242,7 +242,7 @@
     "sellingPrice": 120.0,
     "currentStock": 50,
     "openingStock": 50,
-    "lowStockThreshold": 8,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -261,7 +261,7 @@
     "sellingPrice": 120.0,
     "currentStock": 25,
     "openingStock": 25,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -280,7 +280,7 @@
     "sellingPrice": 120.0,
     "currentStock": 25,
     "openingStock": 25,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -299,7 +299,7 @@
     "sellingPrice": 100.0,
     "currentStock": 25,
     "openingStock": 25,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -318,7 +318,7 @@
     "sellingPrice": 60.0,
     "currentStock": 100,
     "openingStock": 100,
-    "lowStockThreshold": 15,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -337,7 +337,7 @@
     "sellingPrice": 50.0,
     "currentStock": 50,
     "openingStock": 50,
-    "lowStockThreshold": 8,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -356,7 +356,7 @@
     "sellingPrice": 100.0,
     "currentStock": 300,
     "openingStock": 300,
-    "lowStockThreshold": 45,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -375,7 +375,7 @@
     "sellingPrice": 120.0,
     "currentStock": 50,
     "openingStock": 50,
-    "lowStockThreshold": 8,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -394,7 +394,7 @@
     "sellingPrice": 80.0,
     "currentStock": 50,
     "openingStock": 50,
-    "lowStockThreshold": 8,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -413,7 +413,7 @@
     "sellingPrice": 350.0,
     "currentStock": 10,
     "openingStock": 10,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -432,7 +432,7 @@
     "sellingPrice": 40.0,
     "currentStock": 50,
     "openingStock": 50,
-    "lowStockThreshold": 8,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -451,7 +451,7 @@
     "sellingPrice": 120.0,
     "currentStock": 25,
     "openingStock": 25,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -470,7 +470,7 @@
     "sellingPrice": 900.0,
     "currentStock": 20,
     "openingStock": 20,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -489,7 +489,7 @@
     "sellingPrice": 120.0,
     "currentStock": 5,
     "openingStock": 5,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -508,7 +508,7 @@
     "sellingPrice": 100.0,
     "currentStock": 25,
     "openingStock": 25,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -527,7 +527,7 @@
     "sellingPrice": 70.0,
     "currentStock": 25,
     "openingStock": 25,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -546,7 +546,7 @@
     "sellingPrice": 70.0,
     "currentStock": 25,
     "openingStock": 25,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -565,7 +565,7 @@
     "sellingPrice": 120.0,
     "currentStock": 10,
     "openingStock": 10,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -584,7 +584,7 @@
     "sellingPrice": 120.0,
     "currentStock": 25,
     "openingStock": 25,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -603,7 +603,7 @@
     "sellingPrice": 150.0,
     "currentStock": 25,
     "openingStock": 25,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -622,7 +622,7 @@
     "sellingPrice": 150.0,
     "currentStock": 50,
     "openingStock": 50,
-    "lowStockThreshold": 8,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -641,7 +641,7 @@
     "sellingPrice": 200.0,
     "currentStock": 45,
     "openingStock": 45,
-    "lowStockThreshold": 7,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -660,7 +660,7 @@
     "sellingPrice": 110.0,
     "currentStock": 25,
     "openingStock": 25,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -679,7 +679,7 @@
     "sellingPrice": 110.0,
     "currentStock": 25,
     "openingStock": 25,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -698,7 +698,7 @@
     "sellingPrice": 250.0,
     "currentStock": 90,
     "openingStock": 90,
-    "lowStockThreshold": 14,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -717,7 +717,7 @@
     "sellingPrice": 250.0,
     "currentStock": 10,
     "openingStock": 10,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -736,7 +736,7 @@
     "sellingPrice": 100.0,
     "currentStock": 25,
     "openingStock": 25,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -755,7 +755,7 @@
     "sellingPrice": 250.0,
     "currentStock": 50,
     "openingStock": 50,
-    "lowStockThreshold": 8,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -774,7 +774,7 @@
     "sellingPrice": 250.0,
     "currentStock": 75,
     "openingStock": 75,
-    "lowStockThreshold": 11,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -793,7 +793,7 @@
     "sellingPrice": 350.0,
     "currentStock": 100,
     "openingStock": 100,
-    "lowStockThreshold": 15,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -812,7 +812,7 @@
     "sellingPrice": 120.0,
     "currentStock": 25,
     "openingStock": 25,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -831,7 +831,7 @@
     "sellingPrice": 120.0,
     "currentStock": 25,
     "openingStock": 25,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -850,7 +850,7 @@
     "sellingPrice": 120.0,
     "currentStock": 10,
     "openingStock": 10,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -869,7 +869,7 @@
     "sellingPrice": 100.0,
     "currentStock": 50,
     "openingStock": 50,
-    "lowStockThreshold": 8,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -888,7 +888,7 @@
     "sellingPrice": 80.0,
     "currentStock": 25,
     "openingStock": 25,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -907,7 +907,7 @@
     "sellingPrice": 25.0,
     "currentStock": 10,
     "openingStock": 10,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -926,7 +926,7 @@
     "sellingPrice": 250.0,
     "currentStock": 10,
     "openingStock": 10,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -945,7 +945,7 @@
     "sellingPrice": 100.0,
     "currentStock": 50,
     "openingStock": 50,
-    "lowStockThreshold": 8,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -964,7 +964,7 @@
     "sellingPrice": 80.0,
     "currentStock": 25,
     "openingStock": 25,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -983,7 +983,7 @@
     "sellingPrice": 150.0,
     "currentStock": 25,
     "openingStock": 25,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -1002,7 +1002,7 @@
     "sellingPrice": 250.0,
     "currentStock": 25,
     "openingStock": 25,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -1021,7 +1021,7 @@
     "sellingPrice": 60.0,
     "currentStock": 25,
     "openingStock": 25,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -1040,7 +1040,7 @@
     "sellingPrice": 100.0,
     "currentStock": 50,
     "openingStock": 50,
-    "lowStockThreshold": 8,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -1059,7 +1059,7 @@
     "sellingPrice": 100.0,
     "currentStock": 50,
     "openingStock": 50,
-    "lowStockThreshold": 8,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -1078,7 +1078,7 @@
     "sellingPrice": 100.0,
     "currentStock": 50,
     "openingStock": 50,
-    "lowStockThreshold": 8,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -1097,7 +1097,7 @@
     "sellingPrice": 900.0,
     "currentStock": 25,
     "openingStock": 25,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -1116,7 +1116,7 @@
     "sellingPrice": 250.0,
     "currentStock": 10,
     "openingStock": 10,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -1135,7 +1135,7 @@
     "sellingPrice": 30.0,
     "currentStock": 200,
     "openingStock": 200,
-    "lowStockThreshold": 30,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -1154,7 +1154,7 @@
     "sellingPrice": 30.0,
     "currentStock": 200,
     "openingStock": 200,
-    "lowStockThreshold": 30,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -1173,7 +1173,7 @@
     "sellingPrice": 120.0,
     "currentStock": 10,
     "openingStock": 10,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -1192,7 +1192,7 @@
     "sellingPrice": 70.0,
     "currentStock": 25,
     "openingStock": 25,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -1211,7 +1211,7 @@
     "sellingPrice": 60.0,
     "currentStock": 50,
     "openingStock": 50,
-    "lowStockThreshold": 8,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -1230,7 +1230,7 @@
     "sellingPrice": 50.0,
     "currentStock": 50,
     "openingStock": 50,
-    "lowStockThreshold": 8,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -1249,7 +1249,7 @@
     "sellingPrice": 110.0,
     "currentStock": 10,
     "openingStock": 10,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -1268,7 +1268,7 @@
     "sellingPrice": 100.0,
     "currentStock": 10,
     "openingStock": 10,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -1287,7 +1287,7 @@
     "sellingPrice": 100.0,
     "currentStock": 10,
     "openingStock": 10,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -1306,7 +1306,7 @@
     "sellingPrice": 100.0,
     "currentStock": 25,
     "openingStock": 25,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -1325,7 +1325,7 @@
     "sellingPrice": 250.0,
     "currentStock": 10,
     "openingStock": 10,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -1344,7 +1344,7 @@
     "sellingPrice": 280.0,
     "currentStock": 10,
     "openingStock": 10,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -1363,7 +1363,7 @@
     "sellingPrice": 280.0,
     "currentStock": 5,
     "openingStock": 5,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -1382,7 +1382,7 @@
     "sellingPrice": 280.0,
     "currentStock": 10,
     "openingStock": 10,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -1401,7 +1401,7 @@
     "sellingPrice": 280.0,
     "currentStock": 5,
     "openingStock": 5,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -1420,7 +1420,7 @@
     "sellingPrice": 280.0,
     "currentStock": 5,
     "openingStock": 5,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -1439,7 +1439,7 @@
     "sellingPrice": 100.0,
     "currentStock": 25,
     "openingStock": 25,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -1458,7 +1458,7 @@
     "sellingPrice": 60.0,
     "currentStock": 50,
     "openingStock": 50,
-    "lowStockThreshold": 8,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -1477,7 +1477,7 @@
     "sellingPrice": 35.0,
     "currentStock": 200,
     "openingStock": 200,
-    "lowStockThreshold": 30,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -1496,7 +1496,7 @@
     "sellingPrice": 40.0,
     "currentStock": 200,
     "openingStock": 200,
-    "lowStockThreshold": 30,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -1515,7 +1515,7 @@
     "sellingPrice": 30.0,
     "currentStock": 200,
     "openingStock": 200,
-    "lowStockThreshold": 30,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -1534,7 +1534,7 @@
     "sellingPrice": 200.0,
     "currentStock": 25,
     "openingStock": 25,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -1553,7 +1553,7 @@
     "sellingPrice": 50.0,
     "currentStock": 50,
     "openingStock": 50,
-    "lowStockThreshold": 8,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -1572,7 +1572,7 @@
     "sellingPrice": 150.0,
     "currentStock": 50,
     "openingStock": 50,
-    "lowStockThreshold": 8,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -1591,7 +1591,7 @@
     "sellingPrice": 100.0,
     "currentStock": 10,
     "openingStock": 10,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -1610,7 +1610,7 @@
     "sellingPrice": 100.0,
     "currentStock": 10,
     "openingStock": 10,
-    "lowStockThreshold": 5,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   },
@@ -1629,7 +1629,7 @@
     "sellingPrice": 50.0,
     "currentStock": 2000,
     "openingStock": 2000,
-    "lowStockThreshold": 300,
+    "lowStockThreshold": 10,
     "priceStatus": "active",
     "isActive": true
   }
