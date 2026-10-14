@@ -118,13 +118,18 @@ export const CartPanel: React.FC<CartPanelProps> = ({
       {/* Cart Items List */}
       <div className="flex-1 overflow-y-auto p-2.5 sm:p-3 space-y-2">
         {items.length === 0 ? (
-          <div className="h-full min-h-[220px] flex flex-col items-center justify-center text-slate-400 p-6 text-center">
-            <div className="w-14 h-14 rounded-2xl bg-slate-100 flex items-center justify-center text-slate-300 mb-3">
-              <ShoppingBag className="w-8 h-8" />
+          <div className="h-full min-h-[240px] flex flex-col items-center justify-center text-slate-400 p-6 text-center select-none">
+            <div className="w-16 h-16 rounded-full bg-white shadow-sm border border-emerald-500/30 p-1 flex items-center justify-center mb-3">
+              <img
+                src="/vijaya-nursery-logo.jpg"
+                alt="Vijaya Plant Nursery"
+                className="w-full h-full object-contain rounded-full"
+              />
             </div>
-            <h5 className="text-xs font-bold text-slate-700 mb-1">Cart is currently empty</h5>
-            <p className="text-[11px] text-slate-400 leading-relaxed">
-              Tap plants from the catalog to start billing
+            <h5 className="text-xs font-black text-slate-700 tracking-wide mb-0.5">VIJAYA PLANT NURSERY</h5>
+            <p className="text-[10px] text-amber-600 font-bold mb-1">SINCE 1982</p>
+            <p className="text-[11px] text-slate-400 max-w-[200px] leading-relaxed">
+              Tap plants from the catalog to start counter billing
             </p>
           </div>
         ) : (

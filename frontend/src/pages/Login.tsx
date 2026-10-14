@@ -44,14 +44,18 @@ export const Login: React.FC = () => {
       <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-green-500/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-md w-full z-10">
-        {/* Nursery Brand Header */}
-        <div className="text-center mb-8">
-          <div className="inline-flex w-16 h-16 rounded-2xl bg-gradient-to-tr from-emerald-600 to-green-400 items-center justify-center text-white shadow-xl shadow-emerald-500/20 mb-4 border border-emerald-400/30">
-            <Sprout className="w-10 h-10" />
+        {/* Nursery Brand Header with Official Logo */}
+        <div className="text-center mb-8 flex flex-col items-center">
+          <div className="w-24 h-24 rounded-full bg-white p-1.5 shadow-2xl shadow-emerald-500/30 mb-3 border-2 border-emerald-400/50 flex items-center justify-center overflow-hidden hover:scale-105 transition-transform duration-300">
+            <img
+              src="/vijaya-nursery-logo.jpg"
+              alt="Vijaya Plant Nursery"
+              className="w-full h-full object-contain rounded-full"
+            />
           </div>
-          <h1 className="text-2xl font-black text-white tracking-tight">VIJAYA NURSERY</h1>
-          <p className="text-xs text-emerald-400 font-semibold tracking-wide uppercase mt-1">
-            Point of Sale & Nursery Enterprise System
+          <h1 className="text-2xl font-black text-white tracking-tight">VIJAYA PLANT NURSERY</h1>
+          <p className="text-xs text-amber-400 font-bold tracking-wider uppercase mt-0.5">
+            SINCE 1982 • ENTERPRISE BILL-SOFT POS
           </p>
         </div>
 

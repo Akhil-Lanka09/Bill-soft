@@ -73,6 +73,25 @@ export const Sidebar: React.FC = () => {
 
   return (
     <aside className="hidden md:flex w-64 bg-slate-900 text-slate-300 flex-col border-r border-slate-800 select-none shrink-0">
+      {/* Top Sidebar Brand Header with Official Logo */}
+      <div className="p-4 pb-3 border-b border-slate-800 flex items-center space-x-3 bg-slate-950/40">
+        <div className="w-11 h-11 rounded-full bg-white p-0.5 border border-emerald-500/40 shadow-sm shrink-0 flex items-center justify-center overflow-hidden">
+          <img
+            src="/vijaya-nursery-logo.jpg"
+            alt="Vijaya Plant Nursery"
+            className="w-full h-full object-contain rounded-full"
+          />
+        </div>
+        <div className="min-w-0">
+          <div className="text-xs font-black text-white tracking-wide truncate">
+            VIJAYA NURSERY
+          </div>
+          <div className="text-[10px] text-amber-400 font-bold tracking-wider uppercase">
+            SINCE 1982 • POS
+          </div>
+        </div>
+      </div>
+
       {/* Navigation list */}
       <nav className="flex-1 p-4 space-y-1.5 overflow-y-auto">
         <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wider px-3 mb-2">
@@ -126,10 +145,15 @@ export const Sidebar: React.FC = () => {
       </nav>
 
       {/* Nursery Information Box */}
-      <div className="p-4 m-3 rounded-xl bg-slate-800/60 border border-slate-700/50 text-xs">
-        <div className="text-emerald-400 font-semibold flex items-center space-x-1.5 mb-1">
-          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-          <span>System Connected</span>
+      <div className="p-3.5 m-3 rounded-xl bg-slate-800/60 border border-slate-700/50 text-xs">
+        <div className="flex items-center space-x-2 mb-2">
+          <div className="w-5 h-5 rounded-full bg-white p-0.5 flex items-center justify-center overflow-hidden shrink-0">
+            <img src="/vijaya-nursery-logo.jpg" alt="Logo" className="w-full h-full object-contain rounded-full" />
+          </div>
+          <div className="text-emerald-400 font-semibold text-[11px] flex items-center space-x-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block animate-pulse" />
+            <span>POS Online</span>
+          </div>
         </div>
         <p className="text-slate-400 text-[11px]">
           GSTIN: <span className="text-slate-200 font-mono">37ABCDE1234F1Z5</span>

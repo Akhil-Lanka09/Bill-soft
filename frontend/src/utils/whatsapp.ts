@@ -25,8 +25,8 @@ export const formatWhatsAppBillMessage = (bill: Bill): string => {
     .join('\n');
 
   return (
-`🌿 *VIJAYA NURSERY* 🌿
-_Vissannapeta, Andhra Pradesh_
+`🌿 *VIJAYA PLANT NURSERY (SINCE 1982)* 🌿
+_Main Road, Vissannapeta, Andhra Pradesh - 521215_
 📞 +91 98480 22334 | GSTIN: 37ABCDE1234F1Z5
 ━━━━━━━━━━━━━━━━━━━━
 🧾 *${bill.billType === 'tax_invoice' ? 'TAX INVOICE' : 'BILL OF SUPPLY'}*

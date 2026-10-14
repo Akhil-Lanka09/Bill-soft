@@ -165,11 +165,16 @@ export const ThermalReceiptModal: React.FC<ThermalReceiptModalProps> = ({
             ref={receiptRef}
             className="w-[80mm] bg-white p-4 shadow-md text-black font-mono text-[11px] leading-snug border border-slate-300"
           >
-            {/* Business Header */}
-            <div className="text-center pb-2 border-b border-dashed border-black">
-              <h1 className="text-sm font-black uppercase tracking-tight">VIJAYA NURSERY</h1>
-              <p className="text-[10px]">Main Road</p>
-              <p className="text-[10px]">Vissannapeta, AP - 521215</p>
+            {/* Business Header with Official Logo */}
+            <div className="text-center pb-2 border-b border-dashed border-black flex flex-col items-center">
+              <img
+                src="/vijaya-nursery-logo.jpg"
+                alt="Vijaya Plant Nursery"
+                className="w-14 h-14 object-contain rounded-full mb-1"
+              />
+              <h1 className="text-xs font-black uppercase tracking-tight">VIJAYA PLANT NURSERY</h1>
+              <p className="text-[9px] font-bold text-slate-700 tracking-wider">ESTD. 1982</p>
+              <p className="text-[10px]">Main Road, Vissannapeta, AP - 521215</p>
               <p className="text-[10px]">Phone: +91 98480 22334</p>
               <p className="text-[10px] font-bold">GSTIN: 37ABCDE1234F1Z5</p>
             </div>

@@ -118,8 +118,12 @@ export const MobileBottomNav: React.FC = () => {
             {/* Header */}
             <div className="flex items-center justify-between pb-3 border-b border-slate-800">
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 rounded-2xl bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center font-bold">
-                  {user?.name ? user.name.charAt(0) : 'U'}
+                <div className="w-11 h-11 rounded-full bg-white p-0.5 border border-emerald-500/40 flex items-center justify-center shrink-0 overflow-hidden shadow-sm">
+                  <img
+                    src="/vijaya-nursery-logo.jpg"
+                    alt="Vijaya Plant Nursery"
+                    className="w-full h-full object-contain rounded-full"
+                  />
                 </div>
                 <div>
                   <div className="text-sm font-bold text-white flex items-center space-x-1.5">
@@ -128,8 +132,8 @@ export const MobileBottomNav: React.FC = () => {
                       <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
                     )}
                   </div>
-                  <div className="text-[11px] text-slate-400 capitalize">
-                    {user?.role || 'Staff'} • Vijaya Nursery Vissannapeta
+                  <div className="text-[11px] text-amber-400 font-bold uppercase tracking-wide">
+                    Vijaya Plant Nursery • Since 1982
                   </div>
                 </div>
               </div>

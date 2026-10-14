@@ -165,9 +165,18 @@ export const Settings: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
         {/* LEFT 2 COLS: Business Profile Form */}
         <div className="lg:col-span-2 bg-white rounded-2xl sm:rounded-3xl border border-slate-200 shadow-xs p-4 sm:p-6">
-          <div className="flex items-center space-x-2 mb-4 pb-3 border-b border-slate-100">
-            <Building className="w-5 h-5 text-emerald-600" />
-            <h3 className="font-bold text-sm text-slate-800">Nursery Profile & Tax Information</h3>
+          <div className="flex items-center space-x-3 mb-4 pb-3 border-b border-slate-100">
+            <div className="w-12 h-12 rounded-full bg-white border border-emerald-500/30 p-0.5 shadow-sm overflow-hidden flex items-center justify-center shrink-0">
+              <img
+                src="/vijaya-nursery-logo.jpg"
+                alt="Vijaya Plant Nursery"
+                className="w-full h-full object-contain rounded-full"
+              />
+            </div>
+            <div>
+              <h3 className="font-bold text-sm text-slate-800">Vijaya Plant Nursery Profile & Tax Information</h3>
+              <p className="text-[11px] text-amber-700 font-semibold">Established 1982 • Vissannapeta, AP</p>
+            </div>
           </div>
 
           <form onSubmit={handleSaveSettings} className="space-y-4 text-xs">
