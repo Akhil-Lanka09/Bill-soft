@@ -174,9 +174,10 @@ export const LaunchScreen: React.FC<LaunchScreenProps> = ({ onComplete }) => {
     // Initial Celebration Pop from both flanks!
     firePartyPoppers('both');
 
-    // Second wave at 1.2s, Third wave at 2.6s
-    const t1 = setTimeout(() => firePartyPoppers('both'), 1200);
-    const t2 = setTimeout(() => firePartyPoppers('both'), 2600);
+    // 4 timed celebratory waves spanning the 6-second duration
+    const t1 = setTimeout(() => firePartyPoppers('both'), 1500);
+    const t2 = setTimeout(() => firePartyPoppers('both'), 3200);
+    const t3 = setTimeout(() => firePartyPoppers('both'), 4800);
 
     let isRunning = true;
     const gravity = 0.38;
@@ -235,6 +236,7 @@ export const LaunchScreen: React.FC<LaunchScreenProps> = ({ onComplete }) => {
       isRunning = false;
       clearTimeout(t1);
       clearTimeout(t2);
+      clearTimeout(t3);
       if (animFrameIdRef.current) cancelAnimationFrame(animFrameIdRef.current);
       window.removeEventListener('resize', handleResize);
     };
@@ -251,10 +253,11 @@ export const LaunchScreen: React.FC<LaunchScreenProps> = ({ onComplete }) => {
     }, 400);
   };
 
-  // Cinematic sequence progress
+  // Cinematic sequence progress - lasts exactly 6 seconds (6000ms)
   useEffect(() => {
     if (phase !== 'cinematic') return;
 
+    // 100 steps * 60ms = 6000ms = 6.0 seconds
     const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
@@ -262,16 +265,18 @@ export const LaunchScreen: React.FC<LaunchScreenProps> = ({ onComplete }) => {
           setTimeout(() => {
             setPhase('exiting');
             setTimeout(onComplete, 500);
-          }, 500);
+          }, 400);
           return 100;
         }
 
-        const next = prev + 3;
-        if (next > 75) {
-          setStatusMessage('Ready for Billing & Counter Checkout ✨');
-        } else if (next > 45) {
+        const next = prev + 1;
+        if (next >= 85) {
+          setStatusMessage('Welcome to Vijaya Nursery! Ready for Billing ✨');
+        } else if (next >= 55) {
+          setStatusMessage('Verifying Sequential INV Invoicing Engine...');
+        } else if (next >= 30) {
           setStatusMessage('Configuring Cash & UPI Payment Gateways...');
-        } else if (next > 20) {
+        } else if (next >= 10) {
           setStatusMessage('Connecting 86 Plant Varieties from MongoDB Atlas...');
         }
         return next;
