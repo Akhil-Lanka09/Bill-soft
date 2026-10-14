@@ -86,8 +86,8 @@ export class ReportService {
 
     if (startDate || endDate) {
       query.billDate = {};
-      if (startDate) query.billDate.$gte = new Date(startDate);
-      if (endDate) query.billDate.$lte = new Date(endDate);
+      if (startDate) query.billDate.$gte = new Date(startDate.includes('T') ? startDate : `${startDate}T00:00:00.000Z`);
+      if (endDate) query.billDate.$lte = new Date(endDate.includes('T') ? endDate : `${endDate}T23:59:59.999Z`);
     }
 
     const bills = await Bill.find(query).sort({ billDate: 1 }).lean();
@@ -139,13 +139,15 @@ export class ReportService {
    * GST GSTR-1 Sales Report (B2B, B2C, HSN Summary)
    */
   static async getGSTR1Report(startDate: string, endDate: string) {
-    const query: any = {
-      status: 'active',
-      billDate: {
-        $gte: new Date(startDate),
-        $lte: new Date(endDate),
-      },
-    };
+    const start = startDate ? new Date(startDate.includes('T') ? startDate : `${startDate}T00:00:00.000Z`) : undefined;
+    const end = endDate ? new Date(endDate.includes('T') ? endDate : `${endDate}T23:59:59.999Z`) : undefined;
+
+    const query: any = { status: 'active' };
+    if (start || end) {
+      query.billDate = {};
+      if (start) query.billDate.$gte = start;
+      if (end) query.billDate.$lte = end;
+    }
 
     const bills = await Bill.find(query).lean();
 
@@ -261,12 +263,30 @@ export class ReportService {
    * Daily Counter Closing Summary (Day-End Cash Reconciliation)
    */
   static async getDailyClosingData(dateStr?: string) {
-    const targetDate = dateStr ? new Date(dateStr) : new Date();
-    const startOfDay = new Date(targetDate);
-    startOfDay.setHours(0, 0, 0, 0);
+    let startOfDay: Date;
+    let endOfDay: Date;
+    let targetDate: Date;
 
-    const endOfDay = new Date(targetDate);
-    endOfDay.setHours(23, 59, 59, 999);
+    if (dateStr && dateStr.includes('-')) {
+      const parts = dateStr.split('T')[0].split('-').map(Number);
+      if (parts.length === 3) {
+        startOfDay = new Date(parts[0], parts[1] - 1, parts[2], 0, 0, 0, 0);
+        endOfDay = new Date(parts[0], parts[1] - 1, parts[2], 23, 59, 59, 999);
+        targetDate = startOfDay;
+      } else {
+        targetDate = new Date(dateStr);
+        startOfDay = new Date(targetDate);
+        startOfDay.setHours(0, 0, 0, 0);
+        endOfDay = new Date(targetDate);
+        endOfDay.setHours(23, 59, 59, 999);
+      }
+    } else {
+      targetDate = new Date();
+      startOfDay = new Date(targetDate);
+      startOfDay.setHours(0, 0, 0, 0);
+      endOfDay = new Date(targetDate);
+      endOfDay.setHours(23, 59, 59, 999);
+    }
 
     const [bills, expenses, returns] = await Promise.all([
       Bill.find({ billDate: { $gte: startOfDay, $lte: endOfDay }, status: 'active' }).lean(),

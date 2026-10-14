@@ -30,7 +30,7 @@ const config = {
     timezone: process.env.BUSINESS_TIMEZONE || 'Asia/Kolkata',
     state: process.env.BUSINESS_STATE || 'Andhra Pradesh',
     gstStateCode: process.env.GST_STATE_CODE || '37',
-    invoicePrefix: process.env.INVOICE_PREFIX || 'VN',
+    invoicePrefix: process.env.INVOICE_PREFIX || 'INV',
     financialYear: process.env.FINANCIAL_YEAR || '2026-27',
     currency: process.env.CURRENCY || 'INR',
     address: {
@@ -44,7 +44,7 @@ const config = {
   },
 
   invoice: {
-    prefix: 'VN',
+    prefix: 'INV',
     padding: 5,
   },
 

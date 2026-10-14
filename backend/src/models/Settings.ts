@@ -69,7 +69,7 @@ const settingsSchema = new Schema<ISettings>(
     invoicePrefix: {
       type: String,
       required: true,
-      default: 'VN',
+      default: 'INV',
     },
     currentFinancialYear: {
       type: String,

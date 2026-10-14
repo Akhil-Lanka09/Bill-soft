@@ -63,7 +63,7 @@ export class BillingService {
   static async getNextInvoiceNumber(financialYear: string, billType: 'tax_invoice' | 'bill_of_supply' = 'tax_invoice'): Promise<{ invoiceNumber: string; sequenceNumber: number }> {
     const settings = await Settings.findOne();
     const prefix = billType === 'tax_invoice' 
-      ? (settings?.invoicePrefix || config.invoice.prefix || 'BNN')
+      ? (settings?.invoicePrefix || config.invoice.prefix || 'INV')
       : 'BOS';
 
     const counter = await InvoiceCounter.findOneAndUpdate(

@@ -262,7 +262,7 @@ export const Settings: React.FC = () => {
                 <label className="block font-semibold text-slate-700 mb-1">Invoice Number Prefix</label>
                 <input
                   type="text"
-                  value={settings?.invoicePrefix || 'VN'}
+                  value={settings?.invoicePrefix || 'INV'}
                   onChange={(e) => setSettings({ ...settings, invoicePrefix: e.target.value.toUpperCase() })}
                   className="w-full py-2 px-3 border border-slate-300 rounded-xl font-mono uppercase"
                 />

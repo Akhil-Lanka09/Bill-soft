@@ -46,7 +46,7 @@ export const seedDatabase = async () => {
         bankIfsc: 'SBIN0001234',
         bankBranch: 'Main Branch',
         upiId: 'vijayanursery@sbi',
-        invoicePrefix: 'VN',
+        invoicePrefix: 'INV',
         currentFinancialYear: '2026-27',
         timezone: 'Asia/Kolkata',
         currency: 'INR',

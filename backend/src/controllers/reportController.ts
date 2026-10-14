@@ -77,8 +77,8 @@ export class ReportController {
       const query: any = {};
       if (startDate || endDate) {
         query.date = {};
-        if (startDate) query.date.$gte = new Date(startDate as string);
-        if (endDate) query.date.$lte = new Date(endDate as string);
+        if (startDate) query.date.$gte = new Date((startDate as string).includes('T') ? (startDate as string) : `${startDate}T00:00:00.000Z`);
+        if (endDate) query.date.$lte = new Date((endDate as string).includes('T') ? (endDate as string) : `${endDate}T23:59:59.999Z`);
       }
       if (category) query.category = category;
 
