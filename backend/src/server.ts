@@ -6,10 +6,6 @@ const startServer = async () => {
   try {
     await connectDB();
 
-    // Auto-seed if database is empty
-    const { seedDatabase } = await import('./scripts/seed');
-    await seedDatabase();
-
     const server = app.listen(config.port, () => {
       console.log(`====================================================`);
       console.log(`🌱 VIJAYA NURSERY - POS & BILLING SYSTEM`);

@@ -107,7 +107,6 @@ const purchaseSchema = new Schema<IPurchase>(
   { timestamps: true }
 );
 
-purchaseSchema.index({ purchaseNumber: 1 });
 purchaseSchema.index({ supplier: 1 });
 purchaseSchema.index({ supplierInvoiceNumber: 1, supplier: 1 });
 purchaseSchema.index({ purchaseDate: -1 });

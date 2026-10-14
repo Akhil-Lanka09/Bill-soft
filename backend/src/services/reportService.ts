@@ -24,8 +24,8 @@ export class ReportService {
       customersWithCredit,
       recentBills,
     ] = await Promise.all([
-      Bill.find({ billDate: { $gte: todayStart }, status: 'active' }).lean(),
-      Bill.find({ billDate: { $gte: monthStart }, status: 'active' }).lean(),
+      Bill.find({ billDate: { $gte: todayStart }, status: 'active' }).select('grandTotal payments').lean(),
+      Bill.find({ billDate: { $gte: monthStart }, status: 'active' }).select('grandTotal').lean(),
       Product.countDocuments({
         isActive: true,
         isArchived: false,

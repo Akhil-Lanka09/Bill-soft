@@ -67,7 +67,6 @@ const creditNoteSchema = new Schema<ICreditNote>(
   { timestamps: true }
 );
 
-creditNoteSchema.index({ creditNoteNumber: 1 });
 creditNoteSchema.index({ originalBill: 1 });
 creditNoteSchema.index({ createdAt: -1 });
 
@@ -254,7 +253,6 @@ const stockTransferSchema = new Schema<IStockTransfer>(
   { timestamps: true }
 );
 
-stockTransferSchema.index({ transferNumber: 1 });
 stockTransferSchema.index({ status: 1, createdAt: -1 });
 
 export const StockTransfer: Model<IStockTransfer> = mongoose.model<IStockTransfer>('StockTransfer', stockTransferSchema);

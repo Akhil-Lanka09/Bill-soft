@@ -168,6 +168,7 @@ export class ProductController {
   // Categories
   static async getCategories(req: Request, res: Response, next: NextFunction) {
     try {
+      res.setHeader('Cache-Control', 'public, max-age=60, stale-while-revalidate=120');
       const categories = await Category.find({ isActive: true }).sort({ sortOrder: 1, name: 1 }).lean();
       return ApiResponse.success(res, categories);
     } catch (error) {

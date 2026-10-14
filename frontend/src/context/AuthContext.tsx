@@ -14,9 +14,20 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [user, setUser] = useState<User | null>(null);
-  const [token, setToken] = useState<string | null>(localStorage.getItem('token'));
-  const [loading, setLoading] = useState<boolean>(true);
+  const [token, setToken] = useState<string | null>(() => localStorage.getItem('token'));
+  const [user, setUser] = useState<User | null>(() => {
+    try {
+      const cached = localStorage.getItem('cached_user');
+      return cached ? JSON.parse(cached) : null;
+    } catch {
+      return null;
+    }
+  });
+  const [loading, setLoading] = useState<boolean>(() => {
+    const hasToken = Boolean(localStorage.getItem('token'));
+    const hasCachedUser = Boolean(localStorage.getItem('cached_user'));
+    return hasToken && !hasCachedUser;
+  });
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -28,6 +39,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         const res = await api.getMe();
         if (res.success && res.data) {
           setUser(res.data);
+          localStorage.setItem('cached_user', JSON.stringify(res.data));
         } else {
           logout();
         }
@@ -46,6 +58,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const res = await api.login({ username, password });
     if (res.success && res.data) {
       localStorage.setItem('token', res.data.token);
+      localStorage.setItem('cached_user', JSON.stringify(res.data.user));
       setToken(res.data.token);
       setUser(res.data.user);
     } else {
@@ -55,6 +68,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const logout = () => {
     localStorage.removeItem('token');
+    localStorage.removeItem('cached_user');
     setToken(null);
     setUser(null);
   };

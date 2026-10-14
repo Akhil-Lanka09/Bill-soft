@@ -30,7 +30,9 @@ const connectDB = async (): Promise<typeof mongoose> => {
     try {
       console.log(`📡 Connecting to MongoDB (${isAtlas ? 'MongoDB Atlas / Cloud' : 'Local URI'})...`);
       const conn = await mongoose.connect(uri, {
-        maxPoolSize: 10,
+        maxPoolSize: 25,
+        minPoolSize: 5,
+        maxIdleTimeMS: 30000,
         serverSelectionTimeoutMS: 8000,
         socketTimeoutMS: 45000,
       });

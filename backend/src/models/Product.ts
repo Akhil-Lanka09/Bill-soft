@@ -225,14 +225,13 @@ const productSchema = new Schema<IProduct>(
   }
 );
 
-// Indexes for product search
+// Indexes for product search & fast catalog listing
 productSchema.index({ name: 'text', localName: 'text', botanicalName: 'text', sku: 'text' });
-productSchema.index({ category: 1 });
-productSchema.index({ isActive: 1, isArchived: 1 });
+productSchema.index({ isActive: 1, isArchived: 1, name: 1 });
+productSchema.index({ isActive: 1, isArchived: 1, category: 1, name: 1 });
+productSchema.index({ isActive: 1, isArchived: 1, currentStock: 1 });
 productSchema.index({ hsn: 1 });
-productSchema.index({ currentStock: 1 });
 productSchema.index({ priceStatus: 1 });
 productSchema.index({ needsReconciliation: 1 });
-productSchema.index({ name: 1 });
 
 export const Product: Model<IProduct> = mongoose.model<IProduct>('Product', productSchema);

@@ -82,11 +82,9 @@ export const POSBilling: React.FC = () => {
   const [showReceiptModal, setShowReceiptModal] = useState<boolean>(false);
   const [showMobileCart, setShowMobileCart] = useState<boolean>(false);
 
-  // Load products & categories on mount
+  // Load products & categories concurrently on mount
   useEffect(() => {
-    fetchCategories();
-    fetchProducts();
-    fetchHeldBills();
+    Promise.allSettled([fetchCategories(), fetchProducts(), fetchHeldBills()]);
   }, []);
 
   const fetchCategories = async () => {
@@ -101,7 +99,7 @@ export const POSBilling: React.FC = () => {
   const fetchProducts = async () => {
     setLoadingProducts(true);
     try {
-      const res = await api.getProducts({ limit: 100, isActive: 'true' });
+      const res = await api.getProducts({ limit: 150, isActive: 'true' });
       if (res.success) setProducts(res.data);
     } catch (err) {
       console.error('Failed to load products', err);

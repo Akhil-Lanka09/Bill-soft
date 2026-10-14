@@ -49,8 +49,7 @@ const categorySchema = new Schema<ICategory>(
   }
 );
 
-categorySchema.index({ slug: 1 });
-categorySchema.index({ isActive: 1 });
+categorySchema.index({ isActive: 1, sortOrder: 1, name: 1 });
 categorySchema.index({ name: 'text' });
 
 export const Category: Model<ICategory> = mongoose.model<ICategory>('Category', categorySchema);

@@ -13,4 +13,17 @@ export default defineConfig({
       },
     },
   },
+  build: {
+    target: 'esnext',
+    cssMinify: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor-react': ['react', 'react-dom', 'react-router-dom'],
+          'vendor-icons': ['lucide-react'],
+          'vendor-qr': ['qrcode'],
+        },
+      },
+    },
+  },
 });

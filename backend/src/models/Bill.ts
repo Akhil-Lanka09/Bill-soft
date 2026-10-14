@@ -221,11 +221,12 @@ const billSchema = new Schema<IBill>(
 );
 
 // Indexes
+billSchema.index({ invoiceNumber: 1 });
 billSchema.index({ financialYear: 1, sequenceNumber: 1 });
+billSchema.index({ status: 1, billDate: -1 });
 billSchema.index({ agent: 1, billDate: -1 });
 billSchema.index({ customer: 1, billDate: -1 });
 billSchema.index({ billDate: -1 });
-billSchema.index({ status: 1 });
 billSchema.index({ paymentStatus: 1 });
 billSchema.index({ createdAt: -1 });
 
